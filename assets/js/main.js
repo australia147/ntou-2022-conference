@@ -70,22 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =============================================================
-// 滾動入場動畫
-// 注意：因為內容是 Alpine 後渲染才出現，所以要在內容出現後再 observe
+// 入場動畫：簡單版（直接顯示，靠 CSS transition 帶過動畫）
+// 不用 IntersectionObserver，因為 x-cloak 會破壞觀察時機
 // =============================================================
 window.initFadeUp = function () {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.08 }
-  );
-  document.querySelectorAll('.fade-up:not(.is-visible)').forEach((el) => observer.observe(el));
+  document.querySelectorAll('.fade-up:not(.is-visible)').forEach((el) => {
+    el.classList.add('is-visible');
+  });
 };
 
 // 預設先掃一輪（給靜態元素用）
@@ -194,11 +185,26 @@ function pageDataFactory(files) {
     Object.keys(files).forEach((k) => (obj[k] = {}));
     return Object.assign(obj, {
       async init() {
-        const results = await Promise.all(Object.values(files).map(loadJSON));
-        Object.keys(files).forEach((k, i) => (this[k] = results[i] || {}));
-        await this.$nextTick();
-        if (window.lucide) lucide.createIcons();
-        if (window.initFadeUp) window.initFadeUp();
+        console.log('[CMS] init() 開始，準備載入：', files);
+        try {
+          const entries = Object.entries(files);
+          for (const [key, filename] of entries) {
+            const data = await loadJSON(filename);
+            if (data) {
+              // 用 Object.assign 在原本的 reactive proxy 上加屬性，確保 Alpine 偵測得到
+              Object.assign(this[key], data);
+              console.log('[CMS] 已載入', filename, '→', Object.keys(data).length, '個欄位');
+            } else {
+              console.warn('[CMS] 載入失敗：', filename);
+            }
+          }
+          await this.$nextTick();
+          if (window.lucide) lucide.createIcons();
+          if (window.initFadeUp) window.initFadeUp();
+          console.log('[CMS] 全部載入完成 ✓');
+        } catch (err) {
+          console.error('[CMS] init() 失敗：', err);
+        }
       }
     });
   };
