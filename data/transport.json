@@ -1,0 +1,32 @@
+{
+  "page_title": "交通與接駁",
+  "page_description": "高鐵南港站直達會場專車、自駕停車與大眾運輸建議，讓您舒適抵達國立臺灣海洋大學。",
+  "shuttle_outbound": [
+    { "time": "08:10" },
+    { "time": "08:25" }
+  ],
+  "shuttle_outbound_meeting": "南港高鐵大廳",
+  "shuttle_return": [
+    { "time": "16:30" }
+  ],
+  "shuttle_return_meeting": "展示廳門口",
+  "driving": {
+    "warning": "因校內停車空間有限，**建議儘量搭乘接駁車或大眾交通工具**。",
+    "campus_park": "至報到處登載車號，**免收停車費**",
+    "recommended_park": "免費停車、無需登載車號\n步行至會場約 **5–10 分鐘**"
+  },
+  "public_transport": [
+    {
+      "title": "火車（台鐵）",
+      "description": "搭乘區間車或自強號至 **基隆車站**，再轉搭公車或計程車前往。"
+    },
+    {
+      "title": "客運 / 公車",
+      "description": "市區公車多班次經過海洋大學站，下車即達校門口。"
+    },
+    {
+      "title": "完整交通指引",
+      "description": "海洋大學官方交通網提供詳盡路線資訊：\nhttp://traffic.ntou.edu.tw/ntous/"
+    }
+  ]
+}

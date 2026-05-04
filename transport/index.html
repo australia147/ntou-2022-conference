@@ -17,9 +17,12 @@
   }}}
 </script>
 <link rel="stylesheet" href="../assets/css/style.css" />
+<style>[x-cloak]{display:none!important}</style>
 <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<script src="../assets/js/main.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body>
+<body data-depth="1" x-data="transportData()" x-cloak>
 
 <!-- ============ NAVBAR ============ -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-all duration-200">
@@ -30,8 +33,8 @@
           <i data-lucide="waves" class="w-5 h-5 text-white"></i>
         </div>
         <div class="leading-tight">
-          <div class="text-[11px] text-slate-500 font-medium tracking-wider">NTOU · 2022.07.21</div>
-          <div class="text-sm font-bold text-ocean-deep">成果交流會</div>
+          <div class="text-[11px] text-slate-500 font-medium tracking-wider">NTOU · <span x-text="event.date"></span></div>
+          <div class="text-sm font-bold text-ocean-deep" x-text="event.title_suffix"></div>
         </div>
       </a>
       <div class="hidden lg:flex items-center gap-8">
@@ -42,7 +45,7 @@
         <a href="../contact/" class="nav-link">聯繫我們</a>
       </div>
       <div class="flex items-center gap-3">
-        <a href="../#register" class="hidden sm:inline-flex btn btn-primary text-sm py-2.5 px-5">
+        <a :href="event.register_url || '../#register'" class="hidden sm:inline-flex btn btn-primary text-sm py-2.5 px-5">
           <i data-lucide="edit-3" class="w-4 h-4"></i> 立即報名
         </a>
         <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center hover:bg-slate-100">
@@ -57,7 +60,7 @@
         <a href="../field-trip/" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">場域踏查</a>
         <a href="../transport/" class="px-3 py-2.5 rounded-lg text-ocean-deep font-semibold bg-sky-50">交通資訊</a>
         <a href="../contact/" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">聯繫我們</a>
-        <a href="../#register" class="mt-2 btn btn-primary justify-center py-2.5">立即報名</a>
+        <a :href="event.register_url || '../#register'" class="mt-2 btn btn-primary justify-center py-2.5">立即報名</a>
       </div>
     </div>
   </div>
@@ -72,12 +75,8 @@
       <i data-lucide="bus" class="w-4 h-4"></i>
       Transport · 交通資訊
     </div>
-    <h1 class="fade-up text-white font-black tracking-tight text-4xl sm:text-5xl lg:text-6xl mb-4">
-      交通與接駁
-    </h1>
-    <p class="fade-up text-cyan-100/90 text-base sm:text-lg max-w-2xl">
-      高鐵南港站直達會場專車、自駕停車與大眾運輸建議，<br class="hidden sm:block" />讓您舒適抵達國立臺灣海洋大學。
-    </p>
+    <h1 class="fade-up text-white font-black tracking-tight text-4xl sm:text-5xl lg:text-6xl mb-4" x-text="page.page_title"></h1>
+    <p class="fade-up text-cyan-100/90 text-base sm:text-lg max-w-2xl" x-html="md(page.page_description)"></p>
   </div>
   <div class="wave-divider absolute bottom-0 left-0 right-0">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
@@ -109,25 +108,20 @@
         </div>
 
         <div class="space-y-3 mb-5">
-          <div class="flex items-center justify-between p-4 rounded-xl bg-sky-50 border border-sky-100">
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-cyan">1</div>
-              <div class="font-semibold text-ocean-deep">第一班</div>
+          <template x-for="(b, i) in (page.shuttle_outbound || [])" :key="i">
+            <div class="flex items-center justify-between p-4 rounded-xl bg-sky-50 border border-sky-100">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-cyan" x-text="i + 1"></div>
+                <div class="font-semibold text-ocean-deep" x-text="['第一班','第二班','第三班','第四班','第五班'][i] || ('第' + (i+1) + '班')"></div>
+              </div>
+              <div class="font-black text-2xl text-ocean-deep" x-text="b.time"></div>
             </div>
-            <div class="font-black text-2xl text-ocean-deep">08:10</div>
-          </div>
-          <div class="flex items-center justify-between p-4 rounded-xl bg-sky-50 border border-sky-100">
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-cyan">2</div>
-              <div class="font-semibold text-ocean-deep">第二班</div>
-            </div>
-            <div class="font-black text-2xl text-ocean-deep">08:25</div>
-          </div>
+          </template>
         </div>
 
         <div class="flex items-start gap-2 text-sm text-slate-600 bg-slate-50 p-3 rounded-lg">
           <i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0 text-ocean-cyan"></i>
-          <div><strong>集合地點：</strong>南港高鐵大廳</div>
+          <div><strong>集合地點：</strong><span x-text="page.shuttle_outbound_meeting"></span></div>
         </div>
       </div>
 
@@ -144,20 +138,22 @@
         </div>
 
         <div class="space-y-3 mb-5">
-          <div class="flex items-center justify-between p-4 rounded-xl bg-teal-50 border border-teal-100">
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-teal">
-                <i data-lucide="bus" class="w-5 h-5"></i>
+          <template x-for="(b, i) in (page.shuttle_return || [])" :key="i">
+            <div class="flex items-center justify-between p-4 rounded-xl bg-teal-50 border border-teal-100">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-teal">
+                  <i data-lucide="bus" class="w-5 h-5"></i>
+                </div>
+                <div class="font-semibold text-ocean-deep" x-text="(page.shuttle_return && page.shuttle_return.length > 1) ? ('第' + ['一','二','三','四','五'][i] + '班') : '返程班次'"></div>
               </div>
-              <div class="font-semibold text-ocean-deep">返程班次</div>
+              <div class="font-black text-2xl text-ocean-deep" x-text="b.time"></div>
             </div>
-            <div class="font-black text-2xl text-ocean-deep">16:30</div>
-          </div>
+          </template>
         </div>
 
         <div class="flex items-start gap-2 text-sm text-slate-600 bg-slate-50 p-3 rounded-lg">
           <i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0 text-ocean-teal"></i>
-          <div><strong>集合地點：</strong>展示廳門口</div>
+          <div><strong>集合地點：</strong><span x-text="page.shuttle_return_meeting"></span></div>
         </div>
       </div>
     </div>
@@ -177,9 +173,7 @@
 
         <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-5 flex gap-3">
           <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
-          <p class="text-sm text-amber-900 leading-relaxed">
-            因校內停車空間有限，<strong>建議儘量搭乘接駁車或大眾交通工具</strong>。
-          </p>
+          <p class="text-sm text-amber-900 leading-relaxed" x-html="md(page.driving?.warning)"></p>
         </div>
 
         <div class="space-y-4">
@@ -189,7 +183,7 @@
             </div>
             <div>
               <div class="font-bold text-ocean-deep mb-1">校內停車</div>
-              <p class="text-slate-600 text-sm">至報到處登載車號，<strong>免收停車費</strong></p>
+              <p class="text-slate-600 text-sm" x-html="md(page.driving?.campus_park)"></p>
             </div>
           </div>
 
@@ -199,10 +193,7 @@
             </div>
             <div>
               <div class="font-bold text-ocean-deep mb-1">推薦：小艇碼頭停車場</div>
-              <p class="text-slate-600 text-sm leading-relaxed">
-                免費停車、無需登載車號<br />
-                步行至會場約 <strong class="text-emerald-700">5–10 分鐘</strong>
-              </p>
+              <p class="text-slate-600 text-sm leading-relaxed" x-html="md(page.driving?.recommended_park)"></p>
             </div>
           </div>
         </div>
@@ -216,38 +207,19 @@
         <h3 class="text-xl font-bold text-ocean-deep mb-4">大眾運輸</h3>
 
         <div class="space-y-4">
-          <div class="flex gap-3">
-            <div class="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center shrink-0">
-              <i data-lucide="train-front" class="w-5 h-5 text-sky-600"></i>
+          <template x-for="(opt, i) in (page.public_transport || [])" :key="i">
+            <div class="flex gap-3">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                   :class="publicTransportTheme(i).bg">
+                <i :data-lucide="publicTransportTheme(i).icon" class="w-5 h-5"
+                   :class="publicTransportTheme(i).text"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-bold text-ocean-deep mb-1" x-text="opt.title"></div>
+                <p class="text-slate-600 text-sm" x-html="md(opt.description)"></p>
+              </div>
             </div>
-            <div>
-              <div class="font-bold text-ocean-deep mb-1">火車（台鐵）</div>
-              <p class="text-slate-600 text-sm">搭乘區間車或自強號至 <strong>基隆車站</strong>，再轉搭公車或計程車前往。</p>
-            </div>
-          </div>
-
-          <div class="flex gap-3">
-            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center shrink-0">
-              <i data-lucide="bus" class="w-5 h-5 text-indigo-600"></i>
-            </div>
-            <div>
-              <div class="font-bold text-ocean-deep mb-1">客運 / 公車</div>
-              <p class="text-slate-600 text-sm">市區公車多班次經過海洋大學站，下車即達校門口。</p>
-            </div>
-          </div>
-
-          <div class="flex gap-3">
-            <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
-              <i data-lucide="route" class="w-5 h-5 text-purple-600"></i>
-            </div>
-            <div>
-              <div class="font-bold text-ocean-deep mb-1">完整交通指引</div>
-              <p class="text-slate-600 text-sm mb-2">海洋大學官方交通網提供詳盡路線資訊：</p>
-              <a href="http://traffic.ntou.edu.tw/ntous/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-ocean-blue font-semibold text-sm hover:gap-2 transition-all">
-                traffic.ntou.edu.tw <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
+          </template>
         </div>
       </div>
     </div>
@@ -260,7 +232,9 @@
     <div class="fade-up text-center mb-10">
       <span class="tag tag-teal mb-3">會場位置</span>
       <h2 class="section-title center">活動地圖</h2>
-      <p class="text-slate-600 max-w-xl mx-auto">基隆市中正區北寧路 2 號 · 國立臺灣海洋大學</p>
+      <p class="text-slate-600 max-w-xl mx-auto">
+        <span x-text="event.location_address"></span> · <span x-text="event.location"></span>
+      </p>
     </div>
 
     <div class="card fade-up !p-3 overflow-hidden">
@@ -276,7 +250,7 @@
       </div>
 
       <div class="grid sm:grid-cols-3 gap-3 mt-4">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=國立臺灣海洋大學" target="_blank" rel="noopener" class="flex items-center gap-3 p-4 rounded-xl bg-sky-50 hover:bg-sky-100 transition border border-sky-100">
+        <a :href="'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(event.location || '')" target="_blank" rel="noopener" class="flex items-center gap-3 p-4 rounded-xl bg-sky-50 hover:bg-sky-100 transition border border-sky-100">
           <i data-lucide="navigation" class="w-5 h-5 text-ocean-blue"></i>
           <div class="flex-1">
             <div class="font-bold text-ocean-deep text-sm">Google 導航</div>
@@ -288,14 +262,14 @@
           <i data-lucide="map-pin" class="w-5 h-5 text-ocean-teal"></i>
           <div>
             <div class="font-bold text-ocean-deep text-sm">會場地址</div>
-            <div class="text-slate-500 text-xs">基隆市中正區北寧路2號</div>
+            <div class="text-slate-500 text-xs" x-text="event.location_address"></div>
           </div>
         </div>
         <div class="flex items-center gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
           <i data-lucide="phone" class="w-5 h-5 text-ocean-teal"></i>
           <div>
             <div class="font-bold text-ocean-deep text-sm">總機</div>
-            <div class="text-slate-500 text-xs">(02) 2462-2192</div>
+            <div class="text-slate-500 text-xs" x-text="event.footer?.phone"></div>
           </div>
         </div>
       </div>
@@ -312,11 +286,13 @@
           <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-teal flex items-center justify-center">
             <i data-lucide="waves" class="w-5 h-5 text-white"></i>
           </div>
-          <div class="font-bold">110學年度成果交流會</div>
+          <div class="font-bold">
+            <span x-text="event.title_main"></span><span x-text="event.title_suffix"></span>
+          </div>
         </div>
         <p class="text-cyan-100/70 text-sm leading-relaxed">
-          臺北聯合大學系統 · 四校聯合辦理<br />
-          教學實踐研究 暨 大學社會責任實踐計畫
+          <span x-text="event.organizer_tag"></span><br />
+          <span x-text="event.title_part1"></span> 暨 <span x-text="event.title_part2"></span>
         </p>
       </div>
       <div>
@@ -331,9 +307,9 @@
       <div>
         <h4 class="font-bold mb-4 text-amber-200">聯絡資訊</h4>
         <ul class="space-y-2.5 text-cyan-100/80 text-sm">
-          <li class="flex items-start gap-2"><i data-lucide="building-2" class="w-4 h-4 mt-0.5 shrink-0"></i><span>國立臺灣海洋大學<br />教務處教學中心</span></li>
-          <li class="flex items-start gap-2"><i data-lucide="phone" class="w-4 h-4 mt-0.5 shrink-0"></i><span>(02) 2462-2192</span></li>
-          <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i><span>基隆市中正區北寧路2號</span></li>
+          <li class="flex items-start gap-2"><i data-lucide="building-2" class="w-4 h-4 mt-0.5 shrink-0"></i><span x-html="md(event.footer?.org_name)"></span></li>
+          <li class="flex items-start gap-2"><i data-lucide="phone" class="w-4 h-4 mt-0.5 shrink-0"></i><span x-text="event.footer?.phone"></span></li>
+          <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i><span x-text="event.footer?.address"></span></li>
         </ul>
       </div>
     </div>
@@ -343,7 +319,5 @@
   </div>
 </footer>
 
-<script src="../assets/js/main.js"></script>
-<script>window.addEventListener('DOMContentLoaded', () => lucide.createIcons());</script>
 </body>
 </html>

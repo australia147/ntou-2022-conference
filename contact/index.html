@@ -17,9 +17,12 @@
   }}}
 </script>
 <link rel="stylesheet" href="../assets/css/style.css" />
+<style>[x-cloak]{display:none!important}</style>
 <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<script src="../assets/js/main.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body>
+<body data-depth="1" x-data="contactData()" x-cloak>
 
 <!-- ============ NAVBAR ============ -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-all duration-200">
@@ -30,8 +33,8 @@
           <i data-lucide="waves" class="w-5 h-5 text-white"></i>
         </div>
         <div class="leading-tight">
-          <div class="text-[11px] text-slate-500 font-medium tracking-wider">NTOU · 2022.07.21</div>
-          <div class="text-sm font-bold text-ocean-deep">成果交流會</div>
+          <div class="text-[11px] text-slate-500 font-medium tracking-wider">NTOU · <span x-text="event.date"></span></div>
+          <div class="text-sm font-bold text-ocean-deep" x-text="event.title_suffix"></div>
         </div>
       </a>
       <div class="hidden lg:flex items-center gap-8">
@@ -42,7 +45,7 @@
         <a href="../contact/" class="nav-link active">聯繫我們</a>
       </div>
       <div class="flex items-center gap-3">
-        <a href="../#register" class="hidden sm:inline-flex btn btn-primary text-sm py-2.5 px-5">
+        <a :href="event.register_url || '../#register'" class="hidden sm:inline-flex btn btn-primary text-sm py-2.5 px-5">
           <i data-lucide="edit-3" class="w-4 h-4"></i> 立即報名
         </a>
         <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center hover:bg-slate-100">
@@ -57,7 +60,7 @@
         <a href="../field-trip/" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">場域踏查</a>
         <a href="../transport/" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">交通資訊</a>
         <a href="../contact/" class="px-3 py-2.5 rounded-lg text-ocean-deep font-semibold bg-sky-50">聯繫我們</a>
-        <a href="../#register" class="mt-2 btn btn-primary justify-center py-2.5">立即報名</a>
+        <a :href="event.register_url || '../#register'" class="mt-2 btn btn-primary justify-center py-2.5">立即報名</a>
       </div>
     </div>
   </div>
@@ -72,12 +75,8 @@
       <i data-lucide="message-circle" class="w-4 h-4"></i>
       Contact · 聯繫我們
     </div>
-    <h1 class="fade-up text-white font-black tracking-tight text-4xl sm:text-5xl lg:text-6xl mb-4">
-      隨時與我們聯繫
-    </h1>
-    <p class="fade-up text-cyan-100/90 text-base sm:text-lg max-w-2xl">
-      若您對活動內容、報名、交通或其他事項有任何疑問，<br class="hidden sm:block" />歡迎透過下列管道聯絡我們。
-    </p>
+    <h1 class="fade-up text-white font-black tracking-tight text-4xl sm:text-5xl lg:text-6xl mb-4" x-text="page.page_title"></h1>
+    <p class="fade-up text-cyan-100/90 text-base sm:text-lg max-w-2xl" x-html="md(page.page_description)"></p>
   </div>
   <div class="wave-divider absolute bottom-0 left-0 right-0">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
@@ -95,16 +94,12 @@
       <div class="relative grid md:grid-cols-3 gap-8 items-center">
         <div class="md:col-span-2">
           <span class="tag tag-teal mb-3" style="background:#dcfce7;color:#15803d">即時客服</span>
-          <h2 class="text-3xl sm:text-4xl font-black text-ocean-deep mb-3">LINE@ 客服平台</h2>
-          <p class="text-slate-600 leading-relaxed mb-2">
-            最快速的諮詢方式！加入官方 LINE@，我們將即時為您解答各項活動相關問題。
-          </p>
-          <p class="text-slate-500 text-sm">
-            服務時間：週一至週五 09:00–17:00
-          </p>
+          <h2 class="text-3xl sm:text-4xl font-black text-ocean-deep mb-3" x-text="page.line?.title"></h2>
+          <p class="text-slate-600 leading-relaxed mb-2" x-text="page.line?.description"></p>
+          <p class="text-slate-500 text-sm" x-text="page.line?.hours"></p>
         </div>
         <div class="text-center">
-          <a href="#" class="inline-flex flex-col items-center gap-3 p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all border border-emerald-100">
+          <a :href="page.line?.url || '#'" target="_blank" rel="noopener" class="inline-flex flex-col items-center gap-3 p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all border border-emerald-100">
             <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-lg shadow-emerald-500/30">
               <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
             </div>
@@ -125,57 +120,38 @@
     <div class="text-center mb-10 fade-up">
       <span class="tag tag-ocean mb-3">主辦單位</span>
       <h2 class="section-title center">承辦窗口</h2>
-      <p class="text-slate-600">國立臺灣海洋大學 教務處教學中心</p>
+      <p class="text-slate-600">
+        <span x-text="event.location"></span> 教務處教學中心
+      </p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
-      <!-- 孫小姐 -->
-      <div class="card fade-up !p-7 group">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-ocean-cyan to-ocean-blue flex items-center justify-center shadow-lg shadow-cyan-500/20 shrink-0">
-            <i data-lucide="user" class="w-7 h-7 text-white"></i>
-          </div>
-          <div class="flex-1">
-            <div class="text-xs font-bold text-ocean-cyan uppercase tracking-wider mb-1">承辦人</div>
-            <h3 class="text-xl font-bold text-ocean-deep mb-4">孫婉茹 小姐</h3>
-            <ul class="space-y-2.5 text-sm">
-              <li class="flex items-center gap-2 text-slate-600">
-                <i data-lucide="phone" class="w-4 h-4 text-ocean-cyan"></i>
-                <span>(02) 2462-2192</span>
-                <span class="text-slate-400">分機 1232</span>
-              </li>
-              <li class="flex items-center gap-2 text-slate-600">
-                <i data-lucide="mail" class="w-4 h-4 text-ocean-cyan"></i>
-                <a href="mailto:" class="hover:text-ocean-blue transition">承辦人信箱</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- 林小姐 -->
-      <div class="card fade-up !p-7 group">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-ocean-teal to-emerald-600 flex items-center justify-center shadow-lg shadow-teal-500/20 shrink-0">
-            <i data-lucide="user" class="w-7 h-7 text-white"></i>
-          </div>
-          <div class="flex-1">
-            <div class="text-xs font-bold text-ocean-teal uppercase tracking-wider mb-1">承辦人</div>
-            <h3 class="text-xl font-bold text-ocean-deep mb-4">林育香 小姐</h3>
-            <ul class="space-y-2.5 text-sm">
-              <li class="flex items-center gap-2 text-slate-600">
-                <i data-lucide="phone" class="w-4 h-4 text-ocean-teal"></i>
-                <span>(02) 2462-2192</span>
-                <span class="text-slate-400">分機 1235</span>
-              </li>
-              <li class="flex items-center gap-2 text-slate-600">
-                <i data-lucide="mail" class="w-4 h-4 text-ocean-teal"></i>
-                <a href="mailto:" class="hover:text-ocean-teal transition">承辦人信箱</a>
-              </li>
-            </ul>
+      <template x-for="(c, i) in (page.contacts || [])" :key="i">
+        <div class="card fade-up !p-7 group">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br flex items-center justify-center shrink-0 shadow-lg"
+                 :class="[contactTheme(i).grad, contactTheme(i).shadow]">
+              <i data-lucide="user" class="w-7 h-7 text-white"></i>
+            </div>
+            <div class="flex-1">
+              <div class="text-xs font-bold uppercase tracking-wider mb-1"
+                   :class="contactTheme(i).accent" x-text="c.title"></div>
+              <h3 class="text-xl font-bold text-ocean-deep mb-4" x-text="c.name"></h3>
+              <ul class="space-y-2.5 text-sm">
+                <li class="flex items-center gap-2 text-slate-600">
+                  <i data-lucide="phone" class="w-4 h-4" :class="contactTheme(i).accent"></i>
+                  <span x-text="c.phone"></span>
+                  <span class="text-slate-400" x-show="c.extension">分機 <span x-text="c.extension"></span></span>
+                </li>
+                <li class="flex items-center gap-2 text-slate-600" x-show="c.email">
+                  <i data-lucide="mail" class="w-4 h-4" :class="contactTheme(i).accent"></i>
+                  <a :href="'mailto:' + (c.email || '')" class="hover:text-ocean-blue transition" x-text="c.email"></a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+      </template>
     </div>
 
     <!-- 機構聯絡 -->
@@ -195,7 +171,7 @@
         </div>
         <div>
           <div class="text-xs text-slate-500 uppercase tracking-wider mb-0.5">總機</div>
-          <div class="font-bold text-ocean-deep text-sm">(02) 2462-2192</div>
+          <div class="font-bold text-ocean-deep text-sm" x-text="event.footer?.phone"></div>
         </div>
       </div>
       <div class="card fade-up !p-5 flex items-center gap-4">
@@ -204,7 +180,7 @@
         </div>
         <div>
           <div class="text-xs text-slate-500 uppercase tracking-wider mb-0.5">會場地址</div>
-          <div class="font-bold text-ocean-deep text-sm">基隆市中正區北寧路2號</div>
+          <div class="font-bold text-ocean-deep text-sm" x-text="event.location_address"></div>
         </div>
       </div>
     </div>
@@ -223,13 +199,11 @@
         歡迎於上班時間來電，或透過 LINE@ 留言給我們，<br />我們將儘速為您回覆。
       </p>
       <div class="flex flex-wrap gap-3 justify-center">
-        <a href="tel:0224622192" class="btn btn-ocean">
-          <i data-lucide="phone" class="w-5 h-5"></i>
-          直接撥打電話
+        <a :href="'tel:' + (event.footer?.phone || '').replace(/[^0-9]/g, '')" class="btn btn-ocean">
+          <i data-lucide="phone" class="w-5 h-5"></i> 直接撥打電話
         </a>
-        <a href="../#register" class="btn btn-primary">
-          <i data-lucide="edit-3" class="w-5 h-5"></i>
-          立即報名
+        <a :href="event.register_url || '../#register'" class="btn btn-primary">
+          <i data-lucide="edit-3" class="w-5 h-5"></i> 立即報名
         </a>
       </div>
     </div>
@@ -245,11 +219,13 @@
           <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-teal flex items-center justify-center">
             <i data-lucide="waves" class="w-5 h-5 text-white"></i>
           </div>
-          <div class="font-bold">110學年度成果交流會</div>
+          <div class="font-bold">
+            <span x-text="event.title_main"></span><span x-text="event.title_suffix"></span>
+          </div>
         </div>
         <p class="text-cyan-100/70 text-sm leading-relaxed">
-          臺北聯合大學系統 · 四校聯合辦理<br />
-          教學實踐研究 暨 大學社會責任實踐計畫
+          <span x-text="event.organizer_tag"></span><br />
+          <span x-text="event.title_part1"></span> 暨 <span x-text="event.title_part2"></span>
         </p>
       </div>
       <div>
@@ -264,9 +240,9 @@
       <div>
         <h4 class="font-bold mb-4 text-amber-200">聯絡資訊</h4>
         <ul class="space-y-2.5 text-cyan-100/80 text-sm">
-          <li class="flex items-start gap-2"><i data-lucide="building-2" class="w-4 h-4 mt-0.5 shrink-0"></i><span>國立臺灣海洋大學<br />教務處教學中心</span></li>
-          <li class="flex items-start gap-2"><i data-lucide="phone" class="w-4 h-4 mt-0.5 shrink-0"></i><span>(02) 2462-2192</span></li>
-          <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i><span>基隆市中正區北寧路2號</span></li>
+          <li class="flex items-start gap-2"><i data-lucide="building-2" class="w-4 h-4 mt-0.5 shrink-0"></i><span x-html="md(event.footer?.org_name)"></span></li>
+          <li class="flex items-start gap-2"><i data-lucide="phone" class="w-4 h-4 mt-0.5 shrink-0"></i><span x-text="event.footer?.phone"></span></li>
+          <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i><span x-text="event.footer?.address"></span></li>
         </ul>
       </div>
     </div>
@@ -276,7 +252,5 @@
   </div>
 </footer>
 
-<script src="../assets/js/main.js"></script>
-<script>window.addEventListener('DOMContentLoaded', () => lucide.createIcons());</script>
 </body>
 </html>
