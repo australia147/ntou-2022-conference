@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>110學年度 教學實踐研究 暨 大學社會責任實踐計畫 成果交流會</title>
+<meta name="description" content="2022年7月21日於國立臺灣海洋大學舉行，由臺北聯合大學系統四校共同辦理的成果交流會。" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'ocean-deep': '#0c4a6e',
+          'ocean-blue': '#0369a1',
+          'ocean-cyan': '#0891b2',
+          'ocean-teal': '#0d9488',
+          'sand': '#fbbf24',
+          'coral': '#fb923c',
+        },
+        fontFamily: {
+          sans: ['"Noto Sans TC"', 'system-ui', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-all duration-200">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-18">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-teal flex items-center justify-center shadow-md group-hover:scale-105 transition">
+          <i data-lucide="waves" class="w-5 h-5 text-white"></i>
+        </div>
+        <div class="leading-tight">
+          <div class="text-[11px] text-slate-500 font-medium tracking-wider">NTOU · 2022.07.21</div>
+          <div class="text-sm font-bold text-ocean-deep">成果交流會</div>
+        </div>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link active">首頁</a>
+        <a href="agenda.html" class="nav-link">議程</a>
+        <a href="field-trip.html" class="nav-link">場域踏查</a>
+        <a href="transport.html" class="nav-link">交通資訊</a>
+        <a href="contact.html" class="nav-link">聯繫我們</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="#register" class="hidden sm:inline-flex btn btn-primary text-sm py-2.5 px-5">
+          <i data-lucide="edit-3" class="w-4 h-4"></i>
+          立即報名
+        </a>
+        <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center hover:bg-slate-100">
+          <i data-lucide="menu" class="w-6 h-6 text-ocean-deep"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden lg:hidden pb-4 border-t border-slate-100">
+      <div class="flex flex-col gap-1 pt-3">
+        <a href="index.html" class="px-3 py-2.5 rounded-lg text-ocean-deep font-semibold bg-sky-50">首頁</a>
+        <a href="agenda.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">議程</a>
+        <a href="field-trip.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">場域踏查</a>
+        <a href="transport.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">交通資訊</a>
+        <a href="contact.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">聯繫我們</a>
+        <a href="#register" class="mt-2 btn btn-primary justify-center py-2.5">立即報名</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero-gradient relative overflow-hidden pt-32 sm:pt-40 pb-32">
+  <!-- decorative dots -->
+  <div class="absolute inset-0 dot-pattern opacity-30"></div>
+  <!-- decorative blobs -->
+  <div class="absolute -top-20 -right-32 w-96 h-96 rounded-full bg-cyan-400/20 blur-3xl"></div>
+  <div class="absolute -bottom-32 -left-20 w-96 h-96 rounded-full bg-teal-400/20 blur-3xl"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-4xl">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur border border-white/30 text-white text-sm font-medium mb-6 fade-up">
+        <span class="w-2 h-2 rounded-full bg-sand animate-pulse"></span>
+        臺北聯合大學系統 · 四校聯合辦理
+      </div>
+
+      <h1 class="fade-up text-white font-black tracking-tight leading-[1.1] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-6">
+        110學年度<br />
+        <span class="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent">教學實踐研究</span>
+        <span class="text-white/90 text-3xl sm:text-4xl lg:text-5xl">暨</span><br />
+        <span class="bg-gradient-to-r from-cyan-200 to-teal-200 bg-clip-text text-transparent">大學社會責任實踐計畫</span><br />
+        <span>成果交流會</span>
+      </h1>
+
+      <p class="fade-up text-cyan-100/90 text-lg sm:text-xl mb-10 max-w-2xl leading-relaxed">
+        匯集臺北聯合大學系統四校研究能量，分享教學實踐與社會責任實踐成果，<br class="hidden sm:block" />共創高等教育的新風貌。
+      </p>
+
+      <!-- key info row -->
+      <div class="fade-up grid sm:grid-cols-3 gap-4 mb-10 max-w-3xl">
+        <div class="flex items-center gap-3 px-5 py-4 rounded-2xl bg-white/10 backdrop-blur border border-white/20">
+          <div class="w-11 h-11 rounded-xl bg-amber-400/30 flex items-center justify-center">
+            <i data-lucide="calendar" class="w-5 h-5 text-amber-200"></i>
+          </div>
+          <div>
+            <div class="text-[11px] text-cyan-100/70 uppercase tracking-wider">日期</div>
+            <div class="text-white font-bold">2022.07.21</div>
+            <div class="text-cyan-100/80 text-xs">星期四</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-4 rounded-2xl bg-white/10 backdrop-blur border border-white/20">
+          <div class="w-11 h-11 rounded-xl bg-cyan-400/30 flex items-center justify-center">
+            <i data-lucide="clock" class="w-5 h-5 text-cyan-200"></i>
+          </div>
+          <div>
+            <div class="text-[11px] text-cyan-100/70 uppercase tracking-wider">時間</div>
+            <div class="text-white font-bold">09:20–16:10</div>
+            <div class="text-cyan-100/80 text-xs">全日活動</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-4 rounded-2xl bg-white/10 backdrop-blur border border-white/20">
+          <div class="w-11 h-11 rounded-xl bg-teal-400/30 flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-5 h-5 text-teal-200"></i>
+          </div>
+          <div>
+            <div class="text-[11px] text-cyan-100/70 uppercase tracking-wider">地點</div>
+            <div class="text-white font-bold">國立臺灣海洋大學</div>
+            <div class="text-cyan-100/80 text-xs">基隆市中正區</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up flex flex-wrap gap-4">
+        <a href="#register" class="btn btn-primary">
+          <i data-lucide="edit-3" class="w-5 h-5"></i>
+          立即報名
+        </a>
+        <a href="agenda.html" class="btn btn-ghost">
+          <i data-lucide="calendar-days" class="w-5 h-5"></i>
+          查看議程
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave -->
+  <div class="wave-divider absolute bottom-0 left-0 right-0">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#f8fafc" d="M0,32 C240,80 480,80 720,48 C960,16 1200,16 1440,48 L1440,80 L0,80 Z"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-5 fade-up">
+        <span class="tag tag-ocean mb-4">關於本次活動</span>
+        <h2 class="section-title">兩大計畫·<br />一場成果盛宴</h2>
+        <p class="text-slate-600 leading-loose mb-6">
+          「<strong class="text-ocean-deep">臺北聯合大學系統</strong>」由國立臺灣海洋大學、國立臺北大學、國立臺北科技大學及臺北醫學大學四所國立大學共同組成，本次成果交流會涵蓋兩大計畫：
+        </p>
+        <ul class="space-y-3 text-slate-700">
+          <li class="flex gap-3">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-ocean-cyan shrink-0 mt-0.5"></i>
+            <span><strong>教學實踐研究計畫</strong>：採口頭簡報10分鐘、5分鐘交流</span>
+          </li>
+          <li class="flex gap-3">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-ocean-cyan shrink-0 mt-0.5"></i>
+            <span><strong>大學社會責任實踐計畫</strong>：採15分鐘簡報、5分鐘交流</span>
+          </li>
+          <li class="flex gap-3">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-ocean-cyan shrink-0 mt-0.5"></i>
+            <span>另安排 <strong>USR 場域踏查</strong> 與 <strong>靜態成果展示</strong></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-7 grid sm:grid-cols-2 gap-5">
+        <a href="agenda.html" class="card fade-up group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-blue flex items-center justify-center mb-5 shadow-lg shadow-cyan-500/20">
+            <i data-lucide="presentation" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="text-lg font-bold text-ocean-deep mb-2">教學實踐研究學門</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">A、B 兩場次平行進行，涵蓋民生、社會、人文藝術、工程、生技等多元學門</p>
+          <span class="text-ocean-cyan font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+            查看議程 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </a>
+
+        <a href="agenda.html" class="card fade-up group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-ocean-teal to-emerald-600 flex items-center justify-center mb-5 shadow-lg shadow-teal-500/20">
+            <i data-lucide="users" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="text-lg font-bold text-ocean-deep mb-2">大學社會責任 USR</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">臺北醫學大學、臺北科技大學、臺北大學、臺灣海洋大學四校 USR 計畫成果</p>
+          <span class="text-ocean-teal font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+            查看議程 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </a>
+
+        <a href="field-trip.html" class="card fade-up group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mb-5 shadow-lg shadow-orange-500/20">
+            <i data-lucide="compass" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="text-lg font-bold text-ocean-deep mb-2">USR 場域踏查</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">兩條路線任選：和平島文化巡禮、八斗子海上巡禮並登島</p>
+          <span class="text-coral font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+            探索路線 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </a>
+
+        <a href="transport.html" class="card fade-up group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center mb-5 shadow-lg shadow-sky-500/20">
+            <i data-lucide="bus" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="text-lg font-bold text-ocean-deep mb-2">交通與接駁</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">高鐵南港站直達接駁專車、自駕停車資訊與大眾運輸建議</p>
+          <span class="text-ocean-blue font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+            查看資訊 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HIGHLIGHT STATS ============ -->
+<section class="py-16 sm:py-20 bg-gradient-to-br from-sky-50 via-white to-cyan-50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="text-center fade-up">
+        <div class="text-5xl sm:text-6xl font-black bg-gradient-to-br from-ocean-cyan to-ocean-deep bg-clip-text text-transparent mb-2">4</div>
+        <div class="text-slate-600 font-semibold">合作大學</div>
+        <div class="text-slate-400 text-xs mt-1">臺北聯合大學系統</div>
+      </div>
+      <div class="text-center fade-up">
+        <div class="text-5xl sm:text-6xl font-black bg-gradient-to-br from-ocean-teal to-emerald-600 bg-clip-text text-transparent mb-2">9</div>
+        <div class="text-slate-600 font-semibold">成果學門</div>
+        <div class="text-slate-400 text-xs mt-1">涵蓋人文社會至生技</div>
+      </div>
+      <div class="text-center fade-up">
+        <div class="text-5xl sm:text-6xl font-black bg-gradient-to-br from-amber-500 to-orange-500 bg-clip-text text-transparent mb-2">2</div>
+        <div class="text-slate-600 font-semibold">踏查路線</div>
+        <div class="text-slate-400 text-xs mt-1">和平島・八斗子</div>
+      </div>
+      <div class="text-center fade-up">
+        <div class="text-5xl sm:text-6xl font-black bg-gradient-to-br from-sky-500 to-indigo-600 bg-clip-text text-transparent mb-2">7H</div>
+        <div class="text-slate-600 font-semibold">活動時數</div>
+        <div class="text-slate-400 text-xs mt-1">09:20 至 16:10</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGISTER CTA ============ -->
+<section id="register" class="py-20 sm:py-28">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8">
+    <div class="relative overflow-hidden rounded-3xl hero-gradient p-10 sm:p-16 fade-up">
+      <div class="absolute -top-16 -right-16 w-72 h-72 rounded-full bg-amber-300/20 blur-3xl"></div>
+      <div class="absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-cyan-300/20 blur-3xl"></div>
+
+      <div class="relative grid lg:grid-cols-3 gap-8 items-center">
+        <div class="lg:col-span-2">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/25 text-amber-100 text-xs font-bold tracking-wider uppercase mb-4">
+            <i data-lucide="bell-ring" class="w-3.5 h-3.5"></i>
+            報名開放中
+          </span>
+          <h2 class="text-white text-3xl sm:text-4xl font-black mb-4 leading-tight">
+            一同見證教學與社會責任的火花
+          </h2>
+          <p class="text-cyan-100/90 leading-relaxed">
+            點擊下方按鈕填寫報名表單。場域踏查名額有限，請及早報名。<br />
+            <span class="text-amber-200 text-sm">※ 八斗子路線需自付 NT$200，報名後恕不退費</span>
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <a href="#" class="btn btn-primary justify-center text-base">
+            <i data-lucide="edit-3" class="w-5 h-5"></i>
+            前往報名表單
+          </a>
+          <a href="agenda.html" class="btn btn-ghost justify-center text-base">
+            <i data-lucide="calendar-days" class="w-5 h-5"></i>
+            先看完整議程
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer-bg text-white pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid md:grid-cols-3 gap-10 pb-12 border-b border-white/10">
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-teal flex items-center justify-center">
+            <i data-lucide="waves" class="w-5 h-5 text-white"></i>
+          </div>
+          <div class="font-bold">110學年度成果交流會</div>
+        </div>
+        <p class="text-cyan-100/70 text-sm leading-relaxed">
+          臺北聯合大學系統 · 四校聯合辦理<br />
+          教學實踐研究 暨 大學社會責任實踐計畫
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-bold mb-4 text-amber-200">快速連結</h4>
+        <ul class="space-y-2.5 text-cyan-100/80 text-sm">
+          <li><a href="agenda.html" class="hover:text-white transition">活動議程</a></li>
+          <li><a href="field-trip.html" class="hover:text-white transition">場域踏查路線</a></li>
+          <li><a href="transport.html" class="hover:text-white transition">交通與地圖</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">聯繫我們</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold mb-4 text-amber-200">聯絡資訊</h4>
+        <ul class="space-y-2.5 text-cyan-100/80 text-sm">
+          <li class="flex items-start gap-2">
+            <i data-lucide="building-2" class="w-4 h-4 mt-0.5 shrink-0"></i>
+            <span>國立臺灣海洋大學<br />教務處教學中心</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="phone" class="w-4 h-4 mt-0.5 shrink-0"></i>
+            <span>(02) 2462-2192</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i>
+            <span>基隆市中正區北寧路2號</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-6 text-center text-cyan-100/50 text-xs">
+      © 2022 國立臺灣海洋大學 · National Taiwan Ocean University
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>window.addEventListener('DOMContentLoaded', () => lucide.createIcons());</script>
+</body>
+</html>

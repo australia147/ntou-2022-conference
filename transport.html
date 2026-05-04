@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>交通資訊 | 110學年度成果交流會</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { 'ocean-deep':'#0c4a6e','ocean-blue':'#0369a1','ocean-cyan':'#0891b2','ocean-teal':'#0d9488','sand':'#fbbf24','coral':'#fb923c' },
+    fontFamily: { sans: ['"Noto Sans TC"', 'system-ui', 'sans-serif'] }
+  }}}
+</script>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-all duration-200">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-18">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-teal flex items-center justify-center shadow-md group-hover:scale-105 transition">
+          <i data-lucide="waves" class="w-5 h-5 text-white"></i>
+        </div>
+        <div class="leading-tight">
+          <div class="text-[11px] text-slate-500 font-medium tracking-wider">NTOU · 2022.07.21</div>
+          <div class="text-sm font-bold text-ocean-deep">成果交流會</div>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link">首頁</a>
+        <a href="agenda.html" class="nav-link">議程</a>
+        <a href="field-trip.html" class="nav-link">場域踏查</a>
+        <a href="transport.html" class="nav-link active">交通資訊</a>
+        <a href="contact.html" class="nav-link">聯繫我們</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="index.html#register" class="hidden sm:inline-flex btn btn-primary text-sm py-2.5 px-5">
+          <i data-lucide="edit-3" class="w-4 h-4"></i> 立即報名
+        </a>
+        <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center hover:bg-slate-100">
+          <i data-lucide="menu" class="w-6 h-6 text-ocean-deep"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden lg:hidden pb-4 border-t border-slate-100">
+      <div class="flex flex-col gap-1 pt-3">
+        <a href="index.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">首頁</a>
+        <a href="agenda.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">議程</a>
+        <a href="field-trip.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">場域踏查</a>
+        <a href="transport.html" class="px-3 py-2.5 rounded-lg text-ocean-deep font-semibold bg-sky-50">交通資訊</a>
+        <a href="contact.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">聯繫我們</a>
+        <a href="index.html#register" class="mt-2 btn btn-primary justify-center py-2.5">立即報名</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero-gradient relative overflow-hidden pt-32 sm:pt-36 pb-20">
+  <div class="absolute inset-0 dot-pattern opacity-30"></div>
+  <div class="absolute -top-20 -right-32 w-96 h-96 rounded-full bg-cyan-400/20 blur-3xl"></div>
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur border border-white/30 text-white text-sm font-medium mb-5 fade-up">
+      <i data-lucide="bus" class="w-4 h-4"></i>
+      Transport · 交通資訊
+    </div>
+    <h1 class="fade-up text-white font-black tracking-tight text-4xl sm:text-5xl lg:text-6xl mb-4">
+      交通與接駁
+    </h1>
+    <p class="fade-up text-cyan-100/90 text-base sm:text-lg max-w-2xl">
+      高鐵南港站直達會場專車、自駕停車與大眾運輸建議，<br class="hidden sm:block" />讓您舒適抵達國立臺灣海洋大學。
+    </p>
+  </div>
+  <div class="wave-divider absolute bottom-0 left-0 right-0">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#f8fafc" d="M0,32 C240,80 480,80 720,48 C960,16 1200,16 1440,48 L1440,80 L0,80 Z"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 接駁專車 ============ -->
+<section class="py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="fade-up text-center mb-12">
+      <span class="tag tag-ocean mb-3">推薦方式</span>
+      <h2 class="section-title center">活動專車接送</h2>
+      <p class="text-slate-600 max-w-xl mx-auto">主辦單位於高鐵南港站與會場間提供免費接駁專車，建議優先搭乘。</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6">
+      <!-- 去程 -->
+      <div class="card fade-up !p-7">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-blue flex items-center justify-center shadow-lg shadow-cyan-500/20">
+            <i data-lucide="arrow-right" class="w-6 h-6 text-white"></i>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-ocean-cyan uppercase tracking-wider">去程</div>
+            <div class="font-bold text-ocean-deep text-lg">高鐵南港站 → 海洋大學</div>
+          </div>
+        </div>
+
+        <div class="space-y-3 mb-5">
+          <div class="flex items-center justify-between p-4 rounded-xl bg-sky-50 border border-sky-100">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-cyan">1</div>
+              <div class="font-semibold text-ocean-deep">第一班</div>
+            </div>
+            <div class="font-black text-2xl text-ocean-deep">08:10</div>
+          </div>
+          <div class="flex items-center justify-between p-4 rounded-xl bg-sky-50 border border-sky-100">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-cyan">2</div>
+              <div class="font-semibold text-ocean-deep">第二班</div>
+            </div>
+            <div class="font-black text-2xl text-ocean-deep">08:25</div>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-2 text-sm text-slate-600 bg-slate-50 p-3 rounded-lg">
+          <i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0 text-ocean-cyan"></i>
+          <div><strong>集合地點：</strong>南港高鐵大廳</div>
+        </div>
+      </div>
+
+      <!-- 返程 -->
+      <div class="card fade-up !p-7">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-ocean-teal to-emerald-600 flex items-center justify-center shadow-lg shadow-teal-500/20">
+            <i data-lucide="arrow-left" class="w-6 h-6 text-white"></i>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-ocean-teal uppercase tracking-wider">返程</div>
+            <div class="font-bold text-ocean-deep text-lg">海洋大學 → 高鐵南港站</div>
+          </div>
+        </div>
+
+        <div class="space-y-3 mb-5">
+          <div class="flex items-center justify-between p-4 rounded-xl bg-teal-50 border border-teal-100">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-teal">
+                <i data-lucide="bus" class="w-5 h-5"></i>
+              </div>
+              <div class="font-semibold text-ocean-deep">返程班次</div>
+            </div>
+            <div class="font-black text-2xl text-ocean-deep">16:30</div>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-2 text-sm text-slate-600 bg-slate-50 p-3 rounded-lg">
+          <i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0 text-ocean-teal"></i>
+          <div><strong>集合地點：</strong>展示廳門口</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 自行開車 + 大眾運輸 ============ -->
+<section class="py-16 sm:py-20 bg-gradient-to-br from-sky-50 via-white to-cyan-50">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- 自行開車 -->
+      <div class="card fade-up !p-7">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/20 mb-5">
+          <i data-lucide="car" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="text-xl font-bold text-ocean-deep mb-4">自行開車</h3>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-5 flex gap-3">
+          <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+          <p class="text-sm text-amber-900 leading-relaxed">
+            因校內停車空間有限，<strong>建議儘量搭乘接駁車或大眾交通工具</strong>。
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex gap-3">
+            <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center shrink-0">
+              <i data-lucide="parking-square" class="w-5 h-5 text-orange-600"></i>
+            </div>
+            <div>
+              <div class="font-bold text-ocean-deep mb-1">校內停車</div>
+              <p class="text-slate-600 text-sm">至報到處登載車號，<strong>免收停車費</strong></p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center shrink-0">
+              <i data-lucide="badge-check" class="w-5 h-5 text-emerald-600"></i>
+            </div>
+            <div>
+              <div class="font-bold text-ocean-deep mb-1">推薦：小艇碼頭停車場</div>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                免費停車、無需登載車號<br />
+                步行至會場約 <strong class="text-emerald-700">5–10 分鐘</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 大眾運輸 -->
+      <div class="card fade-up !p-7">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-sky-500/20 mb-5">
+          <i data-lucide="train" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="text-xl font-bold text-ocean-deep mb-4">大眾運輸</h3>
+
+        <div class="space-y-4">
+          <div class="flex gap-3">
+            <div class="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center shrink-0">
+              <i data-lucide="train-front" class="w-5 h-5 text-sky-600"></i>
+            </div>
+            <div>
+              <div class="font-bold text-ocean-deep mb-1">火車（台鐵）</div>
+              <p class="text-slate-600 text-sm">搭乘區間車或自強號至 <strong>基隆車站</strong>，再轉搭公車或計程車前往。</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center shrink-0">
+              <i data-lucide="bus" class="w-5 h-5 text-indigo-600"></i>
+            </div>
+            <div>
+              <div class="font-bold text-ocean-deep mb-1">客運 / 公車</div>
+              <p class="text-slate-600 text-sm">市區公車多班次經過海洋大學站，下車即達校門口。</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
+              <i data-lucide="route" class="w-5 h-5 text-purple-600"></i>
+            </div>
+            <div>
+              <div class="font-bold text-ocean-deep mb-1">完整交通指引</div>
+              <p class="text-slate-600 text-sm mb-2">海洋大學官方交通網提供詳盡路線資訊：</p>
+              <a href="http://traffic.ntou.edu.tw/ntous/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-ocean-blue font-semibold text-sm hover:gap-2 transition-all">
+                traffic.ntou.edu.tw <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 活動地圖 ============ -->
+<section class="py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="fade-up text-center mb-10">
+      <span class="tag tag-teal mb-3">會場位置</span>
+      <h2 class="section-title center">活動地圖</h2>
+      <p class="text-slate-600 max-w-xl mx-auto">基隆市中正區北寧路 2 號 · 國立臺灣海洋大學</p>
+    </div>
+
+    <div class="card fade-up !p-3 overflow-hidden">
+      <div class="rounded-xl overflow-hidden aspect-[16/9] bg-slate-100">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.890907285517!2d121.77464!3d25.149808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3458c4f9a8d3fe4d%3A0xc2e1a7a4e80e8f5e!2z5ZyL56uL6Ie654Gj5rW35rSL5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1700000000000"
+          width="100%" height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-3 mt-4">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=國立臺灣海洋大學" target="_blank" rel="noopener" class="flex items-center gap-3 p-4 rounded-xl bg-sky-50 hover:bg-sky-100 transition border border-sky-100">
+          <i data-lucide="navigation" class="w-5 h-5 text-ocean-blue"></i>
+          <div class="flex-1">
+            <div class="font-bold text-ocean-deep text-sm">Google 導航</div>
+            <div class="text-slate-500 text-xs">點此前往</div>
+          </div>
+          <i data-lucide="external-link" class="w-4 h-4 text-slate-400"></i>
+        </a>
+        <div class="flex items-center gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+          <i data-lucide="map-pin" class="w-5 h-5 text-ocean-teal"></i>
+          <div>
+            <div class="font-bold text-ocean-deep text-sm">會場地址</div>
+            <div class="text-slate-500 text-xs">基隆市中正區北寧路2號</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+          <i data-lucide="phone" class="w-5 h-5 text-ocean-teal"></i>
+          <div>
+            <div class="font-bold text-ocean-deep text-sm">總機</div>
+            <div class="text-slate-500 text-xs">(02) 2462-2192</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer-bg text-white pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid md:grid-cols-3 gap-10 pb-12 border-b border-white/10">
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-teal flex items-center justify-center">
+            <i data-lucide="waves" class="w-5 h-5 text-white"></i>
+          </div>
+          <div class="font-bold">110學年度成果交流會</div>
+        </div>
+        <p class="text-cyan-100/70 text-sm leading-relaxed">
+          臺北聯合大學系統 · 四校聯合辦理<br />
+          教學實踐研究 暨 大學社會責任實踐計畫
+        </p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4 text-amber-200">快速連結</h4>
+        <ul class="space-y-2.5 text-cyan-100/80 text-sm">
+          <li><a href="agenda.html" class="hover:text-white transition">活動議程</a></li>
+          <li><a href="field-trip.html" class="hover:text-white transition">場域踏查路線</a></li>
+          <li><a href="transport.html" class="hover:text-white transition">交通與地圖</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">聯繫我們</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4 text-amber-200">聯絡資訊</h4>
+        <ul class="space-y-2.5 text-cyan-100/80 text-sm">
+          <li class="flex items-start gap-2"><i data-lucide="building-2" class="w-4 h-4 mt-0.5 shrink-0"></i><span>國立臺灣海洋大學<br />教務處教學中心</span></li>
+          <li class="flex items-start gap-2"><i data-lucide="phone" class="w-4 h-4 mt-0.5 shrink-0"></i><span>(02) 2462-2192</span></li>
+          <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i><span>基隆市中正區北寧路2號</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 text-center text-cyan-100/50 text-xs">
+      © 2022 國立臺灣海洋大學 · National Taiwan Ocean University
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>window.addEventListener('DOMContentLoaded', () => lucide.createIcons());</script>
+</body>
+</html>

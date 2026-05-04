@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>USR 場域踏查 | 110學年度成果交流會</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { 'ocean-deep':'#0c4a6e','ocean-blue':'#0369a1','ocean-cyan':'#0891b2','ocean-teal':'#0d9488','sand':'#fbbf24','coral':'#fb923c' },
+    fontFamily: { sans: ['"Noto Sans TC"', 'system-ui', 'sans-serif'] }
+  }}}
+</script>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-all duration-200">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-18">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-teal flex items-center justify-center shadow-md group-hover:scale-105 transition">
+          <i data-lucide="waves" class="w-5 h-5 text-white"></i>
+        </div>
+        <div class="leading-tight">
+          <div class="text-[11px] text-slate-500 font-medium tracking-wider">NTOU · 2022.07.21</div>
+          <div class="text-sm font-bold text-ocean-deep">成果交流會</div>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link">首頁</a>
+        <a href="agenda.html" class="nav-link">議程</a>
+        <a href="field-trip.html" class="nav-link active">場域踏查</a>
+        <a href="transport.html" class="nav-link">交通資訊</a>
+        <a href="contact.html" class="nav-link">聯繫我們</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="index.html#register" class="hidden sm:inline-flex btn btn-primary text-sm py-2.5 px-5">
+          <i data-lucide="edit-3" class="w-4 h-4"></i> 立即報名
+        </a>
+        <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center hover:bg-slate-100">
+          <i data-lucide="menu" class="w-6 h-6 text-ocean-deep"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden lg:hidden pb-4 border-t border-slate-100">
+      <div class="flex flex-col gap-1 pt-3">
+        <a href="index.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">首頁</a>
+        <a href="agenda.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">議程</a>
+        <a href="field-trip.html" class="px-3 py-2.5 rounded-lg text-ocean-deep font-semibold bg-sky-50">場域踏查</a>
+        <a href="transport.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">交通資訊</a>
+        <a href="contact.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">聯繫我們</a>
+        <a href="index.html#register" class="mt-2 btn btn-primary justify-center py-2.5">立即報名</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero-gradient relative overflow-hidden pt-32 sm:pt-36 pb-20">
+  <div class="absolute inset-0 dot-pattern opacity-30"></div>
+  <div class="absolute -top-20 -right-32 w-96 h-96 rounded-full bg-orange-400/20 blur-3xl"></div>
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur border border-white/30 text-white text-sm font-medium mb-5 fade-up">
+      <i data-lucide="compass" class="w-4 h-4"></i>
+      Field Trip · 場域踏查
+    </div>
+    <h1 class="fade-up text-white font-black tracking-tight text-4xl sm:text-5xl lg:text-6xl mb-4">
+      USR 場域踏查
+    </h1>
+    <p class="fade-up text-cyan-100/90 text-base sm:text-lg max-w-2xl">
+      走出會場，踏查在地。兩條路線任選其一，<br class="hidden sm:block" />深入感受 USR 計畫如何在地深耕。
+    </p>
+  </div>
+  <div class="wave-divider absolute bottom-0 left-0 right-0">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#f8fafc" d="M0,32 C240,80 480,80 720,48 C960,16 1200,16 1440,48 L1440,80 L0,80 Z"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ INFO BAR ============ -->
+<section class="pt-12">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="grid sm:grid-cols-3 gap-4 fade-up">
+      <div class="card !p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center shrink-0">
+          <i data-lucide="map-pin" class="w-6 h-6 text-orange-600"></i>
+        </div>
+        <div>
+          <div class="text-xs text-slate-500 uppercase tracking-wider">集合地點</div>
+          <div class="font-bold text-ocean-deep">展示廳門口</div>
+        </div>
+      </div>
+      <div class="card !p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center shrink-0">
+          <i data-lucide="clock" class="w-6 h-6 text-amber-600"></i>
+        </div>
+        <div>
+          <div class="text-xs text-slate-500 uppercase tracking-wider">活動時間</div>
+          <div class="font-bold text-ocean-deep">13:20–16:10</div>
+        </div>
+      </div>
+      <div class="card !p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-sky-100 flex items-center justify-center shrink-0">
+          <i data-lucide="route" class="w-6 h-6 text-sky-600"></i>
+        </div>
+        <div>
+          <div class="text-xs text-slate-500 uppercase tracking-wider">路線選擇</div>
+          <div class="font-bold text-ocean-deep">和平島 / 八斗子</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROUTE 1: 和平島 ============ -->
+<section class="py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      <div class="lg:col-span-4 fade-up lg:sticky lg:top-24">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold tracking-wider uppercase mb-4">
+          <i data-lucide="ship" class="w-3.5 h-3.5"></i>
+          路線一 · ROUTE 1
+        </div>
+        <h2 class="text-4xl sm:text-5xl font-black text-ocean-deep mb-4 leading-tight">
+          和平島<br />
+          <span class="text-2xl sm:text-3xl bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">文化巡禮</span>
+        </h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          走訪基隆和平島，深入歷史古蹟與在地市場，體驗北臺灣百年漁村的人文風情。
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag tag-coral">古蹟導覽</span>
+          <span class="tag tag-coral">市場文化</span>
+          <span class="tag tag-coral">免費參加</span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-8 fade-up">
+        <div class="card !p-7 sm:!p-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 rounded-full bg-orange-100/40 blur-2xl"></div>
+
+          <h3 class="font-bold text-ocean-deep text-lg mb-6 flex items-center gap-2 relative">
+            <i data-lucide="map" class="w-5 h-5"></i>
+            行程站點
+          </h3>
+
+          <div class="relative">
+            <!-- vertical line -->
+            <div class="absolute left-[15px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-orange-400 to-amber-300"></div>
+
+            <ol class="space-y-5">
+              <li class="relative pl-12">
+                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white font-bold text-xs shadow-lg shadow-orange-500/30">起</div>
+                <div class="font-bold text-ocean-deep">臺灣海洋大學</div>
+                <div class="text-slate-500 text-sm">展示廳門口集合 · 搭乘專車出發</div>
+              </li>
+              <li class="relative pl-12">
+                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-white border-2 border-orange-400 flex items-center justify-center text-orange-600 font-bold text-xs">1</div>
+                <div class="font-bold text-ocean-deep">和平島旅遊資訊站</div>
+                <div class="text-slate-500 text-sm">行程簡介、發放導覽資料</div>
+              </li>
+              <li class="relative pl-12">
+                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-white border-2 border-orange-400 flex items-center justify-center text-orange-600 font-bold text-xs">2</div>
+                <div class="font-bold text-ocean-deep">Santy 諸聖教堂遺址</div>
+                <div class="text-slate-500 text-sm">17 世紀西班牙人留下的歷史見證</div>
+              </li>
+              <li class="relative pl-12">
+                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-white border-2 border-orange-400 flex items-center justify-center text-orange-600 font-bold text-xs">3</div>
+                <div class="font-bold text-ocean-deep">張火焰故事館</div>
+                <div class="text-slate-500 text-sm">在地藝術家工作室與創作</div>
+              </li>
+              <li class="relative pl-12">
+                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-white border-2 border-orange-400 flex items-center justify-center text-orange-600 font-bold text-xs">4</div>
+                <div class="font-bold text-ocean-deep">海遊學堂</div>
+                <div class="text-slate-500 text-sm">在地海洋教育據點</div>
+              </li>
+              <li class="relative pl-12">
+                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-white border-2 border-orange-400 flex items-center justify-center text-orange-600 font-bold text-xs">5</div>
+                <div class="font-bold text-ocean-deep">和平島市場</div>
+                <div class="text-slate-500 text-sm">含歷史走廊導覽，認識在地漁村文化</div>
+              </li>
+              <li class="relative pl-12">
+                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-white font-bold text-xs shadow-lg shadow-amber-500/30">終</div>
+                <div class="font-bold text-ocean-deep">返回臺灣海洋大學</div>
+                <div class="text-slate-500 text-sm">行程結束</div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROUTE 2: 八斗子 ============ -->
+<section class="py-16 sm:py-20 bg-gradient-to-br from-sky-50 via-white to-cyan-50">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      <div class="lg:col-span-4 fade-up lg:sticky lg:top-24 lg:order-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-700 text-xs font-bold tracking-wider uppercase mb-4">
+          <i data-lucide="anchor" class="w-3.5 h-3.5"></i>
+          路線二 · ROUTE 2
+        </div>
+        <h2 class="text-4xl sm:text-5xl font-black text-ocean-deep mb-4 leading-tight">
+          八斗子<br />
+          <span class="text-2xl sm:text-3xl bg-gradient-to-r from-sky-500 to-cyan-500 bg-clip-text text-transparent">海上巡禮</span>
+        </h2>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          自碧砂漁港啟航，搭船海上巡禮並登上基隆嶼，飽覽北臺灣海岸線壯麗景緻。
+        </p>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="tag tag-ocean">海上巡禮</span>
+          <span class="tag tag-ocean">登島體驗</span>
+          <span class="tag tag-sand">需付費</span>
+        </div>
+
+        <div class="card !p-5 border-l-4 !border-l-amber-400 bg-amber-50/50">
+          <div class="flex gap-3">
+            <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+            <div class="text-sm">
+              <div class="font-bold text-ocean-deep mb-1">費用與退費說明</div>
+              <p class="text-slate-700 leading-relaxed">
+                參加者需自付 <strong class="text-amber-700">NT$200</strong>，其餘約 <strong>NT$500</strong> 由校方補助。
+                因涉及保險與票券採購，<strong class="text-red-600">報名後恕不退費</strong>。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-8 fade-up lg:order-1">
+        <div class="card !p-7 sm:!p-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 rounded-full bg-sky-100/40 blur-2xl"></div>
+
+          <h3 class="font-bold text-ocean-deep text-lg mb-6 flex items-center gap-2 relative">
+            <i data-lucide="map" class="w-5 h-5"></i>
+            行程站點
+          </h3>
+
+          <div class="relative">
+            <div class="absolute left-[15px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-sky-400 to-cyan-300"></div>
+
+            <ol class="space-y-5">
+              <li class="relative pl-12">
+                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-sky-500 to-sky-600 flex items-center justify-center text-white font-bold text-xs shadow-lg shadow-sky-500/30">起</div>
+                <div class="font-bold text-ocean-deep">臺灣海洋大學</div>
+                <div class="text-slate-500 text-sm">展示廳門口集合 · 搭乘專車出發</div>
+              </li>
+              <li class="relative pl-12">
+                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-white border-2 border-sky-400 flex items-center justify-center text-sky-600 font-bold text-xs">1</div>
+                <div class="font-bold text-ocean-deep">碧砂漁港</div>
+                <div class="text-slate-500 text-sm">登船準備、在地漁港文化簡介</div>
+              </li>
+              <li class="relative pl-12">
+                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-white border-2 border-sky-400 flex items-center justify-center text-sky-600 font-bold text-xs">2</div>
+                <div class="font-bold text-ocean-deep">基隆嶼海上巡禮及登島</div>
+                <div class="text-slate-500 text-sm">繞行基隆嶼海域並登上基隆嶼，體驗北臺灣海上明珠的自然風貌</div>
+              </li>
+              <li class="relative pl-12">
+                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center text-white font-bold text-xs shadow-lg shadow-cyan-500/30">終</div>
+                <div class="font-bold text-ocean-deep">返回臺灣海洋大學</div>
+                <div class="text-slate-500 text-sm">行程結束</div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="py-20">
+  <div class="max-w-4xl mx-auto px-5 sm:px-8">
+    <div class="card !p-10 text-center fade-up bg-gradient-to-br from-white via-orange-50 to-amber-50 border-orange-100">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-br from-coral to-orange-500 mx-auto flex items-center justify-center mb-5 shadow-lg shadow-orange-500/30">
+        <i data-lucide="compass" class="w-8 h-8 text-white"></i>
+      </div>
+      <h3 class="text-2xl sm:text-3xl font-black text-ocean-deep mb-3">名額有限，請及早報名</h3>
+      <p class="text-slate-600 mb-6 leading-relaxed">
+        場域踏查兩條路線均有人數限制，建議於完成大會報名時一併選擇路線。
+      </p>
+      <a href="index.html#register" class="btn btn-primary">
+        <i data-lucide="edit-3" class="w-5 h-5"></i>
+        前往報名
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer-bg text-white pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid md:grid-cols-3 gap-10 pb-12 border-b border-white/10">
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-teal flex items-center justify-center">
+            <i data-lucide="waves" class="w-5 h-5 text-white"></i>
+          </div>
+          <div class="font-bold">110學年度成果交流會</div>
+        </div>
+        <p class="text-cyan-100/70 text-sm leading-relaxed">
+          臺北聯合大學系統 · 四校聯合辦理<br />
+          教學實踐研究 暨 大學社會責任實踐計畫
+        </p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4 text-amber-200">快速連結</h4>
+        <ul class="space-y-2.5 text-cyan-100/80 text-sm">
+          <li><a href="agenda.html" class="hover:text-white transition">活動議程</a></li>
+          <li><a href="field-trip.html" class="hover:text-white transition">場域踏查路線</a></li>
+          <li><a href="transport.html" class="hover:text-white transition">交通與地圖</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">聯繫我們</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4 text-amber-200">聯絡資訊</h4>
+        <ul class="space-y-2.5 text-cyan-100/80 text-sm">
+          <li class="flex items-start gap-2"><i data-lucide="building-2" class="w-4 h-4 mt-0.5 shrink-0"></i><span>國立臺灣海洋大學<br />教務處教學中心</span></li>
+          <li class="flex items-start gap-2"><i data-lucide="phone" class="w-4 h-4 mt-0.5 shrink-0"></i><span>(02) 2462-2192</span></li>
+          <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i><span>基隆市中正區北寧路2號</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 text-center text-cyan-100/50 text-xs">
+      © 2022 國立臺灣海洋大學 · National Taiwan Ocean University
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>window.addEventListener('DOMContentLoaded', () => lucide.createIcons());</script>
+</body>
+</html>

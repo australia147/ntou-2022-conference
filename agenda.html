@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>活動議程 | 110學年度成果交流會</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { 'ocean-deep':'#0c4a6e','ocean-blue':'#0369a1','ocean-cyan':'#0891b2','ocean-teal':'#0d9488','sand':'#fbbf24','coral':'#fb923c' },
+      fontFamily: { sans: ['"Noto Sans TC"', 'system-ui', 'sans-serif'] }
+    }}
+  }
+</script>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-all duration-200">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-18">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-teal flex items-center justify-center shadow-md group-hover:scale-105 transition">
+          <i data-lucide="waves" class="w-5 h-5 text-white"></i>
+        </div>
+        <div class="leading-tight">
+          <div class="text-[11px] text-slate-500 font-medium tracking-wider">NTOU · 2022.07.21</div>
+          <div class="text-sm font-bold text-ocean-deep">成果交流會</div>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link">首頁</a>
+        <a href="agenda.html" class="nav-link active">議程</a>
+        <a href="field-trip.html" class="nav-link">場域踏查</a>
+        <a href="transport.html" class="nav-link">交通資訊</a>
+        <a href="contact.html" class="nav-link">聯繫我們</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="index.html#register" class="hidden sm:inline-flex btn btn-primary text-sm py-2.5 px-5">
+          <i data-lucide="edit-3" class="w-4 h-4"></i> 立即報名
+        </a>
+        <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center hover:bg-slate-100">
+          <i data-lucide="menu" class="w-6 h-6 text-ocean-deep"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden lg:hidden pb-4 border-t border-slate-100">
+      <div class="flex flex-col gap-1 pt-3">
+        <a href="index.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">首頁</a>
+        <a href="agenda.html" class="px-3 py-2.5 rounded-lg text-ocean-deep font-semibold bg-sky-50">議程</a>
+        <a href="field-trip.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">場域踏查</a>
+        <a href="transport.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">交通資訊</a>
+        <a href="contact.html" class="px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">聯繫我們</a>
+        <a href="index.html#register" class="mt-2 btn btn-primary justify-center py-2.5">立即報名</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero-gradient relative overflow-hidden pt-32 sm:pt-36 pb-20">
+  <div class="absolute inset-0 dot-pattern opacity-30"></div>
+  <div class="absolute -top-20 -right-32 w-96 h-96 rounded-full bg-cyan-400/20 blur-3xl"></div>
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur border border-white/30 text-white text-sm font-medium mb-5 fade-up">
+      <i data-lucide="calendar-days" class="w-4 h-4"></i>
+      Agenda · 活動議程
+    </div>
+    <h1 class="fade-up text-white font-black tracking-tight text-4xl sm:text-5xl lg:text-6xl mb-4">
+      活動議程一覽
+    </h1>
+    <p class="fade-up text-cyan-100/90 text-base sm:text-lg max-w-2xl">
+      2022 年 7 月 21 日（星期四） · 國立臺灣海洋大學<br />
+      上下午平行多場次，請依興趣選擇參與場別。
+    </p>
+  </div>
+  <div class="wave-divider absolute bottom-0 left-0 right-0">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#f8fafc" d="M0,32 C240,80 480,80 720,48 C960,16 1200,16 1440,48 L1440,80 L0,80 Z"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ LEGEND ============ -->
+<section class="pt-12 pb-4">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8">
+    <div class="card fade-up">
+      <div class="flex flex-wrap gap-3 items-center">
+        <div class="font-bold text-ocean-deep text-sm">場別圖例</div>
+        <span class="tag tag-ocean">教學實踐研究學門</span>
+        <span class="tag tag-teal">大學社會責任 USR</span>
+        <span class="tag tag-coral">場域踏查</span>
+        <span class="tag tag-sand">綜合活動</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="py-12 sm:py-16">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8">
+    <div class="card !p-6 sm:!p-10 fade-up">
+
+      <!-- 08:30-09:20 -->
+      <div class="timeline-row">
+        <div class="timeline-time">08:30–09:20</div>
+        <div>
+          <div class="flex items-start gap-3">
+            <span class="tag tag-sand shrink-0 mt-1">報到</span>
+            <div>
+              <h3 class="font-bold text-ocean-deep text-lg">活動報到</h3>
+              <p class="text-slate-500 text-sm mt-1 flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-4 h-4"></i> 海洋廳
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 09:20-09:35 -->
+      <div class="timeline-row">
+        <div class="timeline-time">09:20–09:35</div>
+        <div>
+          <div class="flex items-start gap-3">
+            <span class="tag tag-sand shrink-0 mt-1">致詞</span>
+            <div>
+              <h3 class="font-bold text-ocean-deep text-lg">主管致詞</h3>
+              <p class="text-slate-600 text-sm mt-1">「110學年度 教學實踐研究 暨 大學社會責任實踐計畫 成果交流會」</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 09:35-09:40 -->
+      <div class="timeline-row">
+        <div class="timeline-time">09:35–09:40</div>
+        <div>
+          <div class="flex items-start gap-3">
+            <span class="tag tag-sand shrink-0 mt-1">開幕</span>
+            <div>
+              <h3 class="font-bold text-ocean-deep text-lg">開幕式 及 大合照</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 09:40-10:00 -->
+      <div class="timeline-row">
+        <div class="timeline-time">09:40–10:00</div>
+        <div>
+          <div class="flex items-start gap-3">
+            <span class="tag tag-sand shrink-0 mt-1">主題演講</span>
+            <div>
+              <h3 class="font-bold text-ocean-deep text-lg">【如何將教學實踐研究與大學社會責任實踐做結合】</h3>
+              <p class="text-slate-600 text-sm mt-2 inline-flex items-center gap-1.5 bg-amber-50 px-3 py-1.5 rounded-lg">
+                <i data-lucide="user" class="w-4 h-4 text-amber-600"></i>
+                <span><strong>主講人：</strong>黃俊儒　教育部教學實踐研究計畫 計畫總主持人</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10:00-12:20 PARALLEL -->
+      <div class="timeline-row">
+        <div class="timeline-time">10:00–12:20</div>
+        <div class="space-y-4">
+          <div class="flex items-center gap-2 mb-1">
+            <i data-lucide="git-branch" class="w-4 h-4 text-ocean-cyan"></i>
+            <span class="text-xs font-bold text-ocean-cyan uppercase tracking-wider">三場次平行進行</span>
+          </div>
+
+          <!-- 教學實踐 -->
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="tag tag-ocean">教學實踐研究學門成果交流會</span>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="track-box">
+                <span class="track-label bg-sky-100 text-sky-800">A 場</span>
+                <h4 class="font-bold text-ocean-deep">民生、社會（含法政）、通識（含體育）學門</h4>
+                <p class="text-slate-500 text-sm mt-1.5 flex items-center gap-1.5">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> 海洋廳
+                </p>
+              </div>
+              <div class="track-box">
+                <span class="track-label bg-sky-100 text-sky-800">B 場</span>
+                <h4 class="font-bold text-ocean-deep">[專案] 大學社會責任、技術實作學門</h4>
+                <p class="text-slate-500 text-sm mt-1.5 flex items-center gap-1.5">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> 行政大樓第一演講廳
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- USR -->
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="tag tag-teal">大學社會責任實踐成果交流會 (USR)</span>
+            </div>
+            <div class="track-box">
+              <span class="track-label bg-teal-100 text-teal-800">C 場</span>
+              <h4 class="font-bold text-ocean-deep">臺北醫學大學・臺北科技大學・臺北大學・臺灣海洋大學</h4>
+              <p class="text-slate-500 text-sm mt-1.5 flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> 行政大樓第二演講廳
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12:20-13:20 -->
+      <div class="timeline-row">
+        <div class="timeline-time">12:20–13:20</div>
+        <div>
+          <div class="flex items-start gap-3">
+            <span class="tag tag-sand shrink-0 mt-1">餐敘</span>
+            <div>
+              <h3 class="font-bold text-ocean-deep text-lg flex items-center gap-2">
+                <i data-lucide="utensils" class="w-5 h-5"></i> 餐敘交流
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13:20-14:20 PARALLEL -->
+      <div class="timeline-row">
+        <div class="timeline-time">13:20–14:20</div>
+        <div class="space-y-4">
+          <div class="flex items-center gap-2 mb-1">
+            <i data-lucide="git-branch" class="w-4 h-4 text-ocean-cyan"></i>
+            <span class="text-xs font-bold text-ocean-cyan uppercase tracking-wider">學門 + 場域踏查 同步進行</span>
+          </div>
+
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="tag tag-ocean">學門成果交流會</span>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-3">
+              <div class="track-box">
+                <span class="track-label bg-sky-100 text-sky-800">A 場</span>
+                <h4 class="font-bold text-ocean-deep text-sm">人文藝術及設計學門</h4>
+                <p class="text-slate-500 text-xs mt-1.5 flex items-center gap-1.5">
+                  <i data-lucide="map-pin" class="w-3 h-3"></i> 海洋廳
+                </p>
+              </div>
+              <div class="track-box">
+                <span class="track-label bg-sky-100 text-sky-800">B 場</span>
+                <h4 class="font-bold text-ocean-deep text-sm">工程、商業及管理、數理學門</h4>
+                <p class="text-slate-500 text-xs mt-1.5 flex items-center gap-1.5">
+                  <i data-lucide="map-pin" class="w-3 h-3"></i> 行政大樓第一演講廳
+                </p>
+              </div>
+              <div class="track-box">
+                <span class="track-label bg-sky-100 text-sky-800">C 場</span>
+                <h4 class="font-bold text-ocean-deep text-sm">生技農科、教育、醫護學門</h4>
+                <p class="text-slate-500 text-xs mt-1.5 flex items-center gap-1.5">
+                  <i data-lucide="map-pin" class="w-3 h-3"></i> 行政大樓第二演講廳
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="tag tag-coral">USR 場域踏查</span>
+              <span class="text-xs text-slate-500">（持續至 16:10）</span>
+            </div>
+            <div class="track-box bg-gradient-to-br from-orange-50 to-amber-50 border-orange-100">
+              <div class="grid sm:grid-cols-2 gap-3">
+                <div class="flex items-start gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-orange-100 flex items-center justify-center shrink-0">
+                    <i data-lucide="ship" class="w-4 h-4 text-orange-700"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-orange-700 uppercase tracking-wider">路線一</div>
+                    <div class="font-bold text-ocean-deep">和平島</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-amber-100 flex items-center justify-center shrink-0">
+                    <i data-lucide="anchor" class="w-4 h-4 text-amber-700"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-amber-700 uppercase tracking-wider">路線二</div>
+                    <div class="font-bold text-ocean-deep">八斗子</div>
+                  </div>
+                </div>
+              </div>
+              <p class="text-slate-500 text-xs mt-3 flex items-center gap-1.5 pt-3 border-t border-orange-100">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                集合地點：展示廳門口
+                <a href="field-trip.html" class="ml-auto text-coral font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
+                  路線詳情 <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14:20-14:50 -->
+      <div class="timeline-row">
+        <div class="timeline-time">14:20–14:50</div>
+        <div>
+          <div class="flex items-start gap-3">
+            <span class="tag tag-sand shrink-0 mt-1">茶敘</span>
+            <div>
+              <h3 class="font-bold text-ocean-deep text-lg flex items-center gap-2">
+                <i data-lucide="coffee" class="w-5 h-5"></i> 茶敘 及 成果展覽
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14:50-16:10 PARALLEL -->
+      <div class="timeline-row">
+        <div class="timeline-time">14:50–16:10</div>
+        <div class="space-y-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="tag tag-ocean">學門成果交流會（下半場）</span>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-3">
+            <div class="track-box">
+              <span class="track-label bg-sky-100 text-sky-800">A 場</span>
+              <h4 class="font-bold text-ocean-deep text-sm">人文藝術及設計學門</h4>
+              <p class="text-slate-500 text-xs mt-1.5 flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3 h-3"></i> 海洋廳
+              </p>
+            </div>
+            <div class="track-box">
+              <span class="track-label bg-sky-100 text-sky-800">B 場</span>
+              <h4 class="font-bold text-ocean-deep text-sm">工程、商業及管理、數理學門</h4>
+              <p class="text-slate-500 text-xs mt-1.5 flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3 h-3"></i> 行政大樓第一演講廳
+              </p>
+            </div>
+            <div class="track-box">
+              <span class="track-label bg-sky-100 text-sky-800">C 場</span>
+              <h4 class="font-bold text-ocean-deep text-sm">生技農科、教育、醫護學門</h4>
+              <p class="text-slate-500 text-xs mt-1.5 flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3 h-3"></i> 行政大樓第二演講廳
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 16:10 -->
+      <div class="timeline-row">
+        <div class="timeline-time">16:10</div>
+        <div>
+          <div class="flex items-start gap-3">
+            <span class="tag tag-sand shrink-0 mt-1">賦歸</span>
+            <div>
+              <h3 class="font-bold text-ocean-deep text-lg flex items-center gap-2">
+                <i data-lucide="home" class="w-5 h-5"></i> 賦歸
+              </h3>
+              <p class="text-slate-500 text-sm mt-1">返程接駁車 16:30 自展示廳門口出發前往高鐵南港站</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 提醒卡片 -->
+    <div class="grid sm:grid-cols-2 gap-4 mt-8">
+      <div class="card fade-up !p-5 flex gap-4 border-l-4 !border-l-ocean-cyan">
+        <i data-lucide="info" class="w-6 h-6 text-ocean-cyan shrink-0"></i>
+        <div class="text-sm">
+          <div class="font-bold text-ocean-deep mb-1">教學實踐研究</div>
+          <div class="text-slate-600 leading-relaxed">口頭簡報 10 分鐘 + 5 分鐘交流</div>
+        </div>
+      </div>
+      <div class="card fade-up !p-5 flex gap-4 border-l-4 !border-l-ocean-teal">
+        <i data-lucide="info" class="w-6 h-6 text-ocean-teal shrink-0"></i>
+        <div class="text-sm">
+          <div class="font-bold text-ocean-deep mb-1">大學社會責任 USR</div>
+          <div class="text-slate-600 leading-relaxed">口頭簡報 15 分鐘 + 5 分鐘交流</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer-bg text-white pt-16 pb-8 mt-12">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid md:grid-cols-3 gap-10 pb-12 border-b border-white/10">
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-ocean-cyan to-ocean-teal flex items-center justify-center">
+            <i data-lucide="waves" class="w-5 h-5 text-white"></i>
+          </div>
+          <div class="font-bold">110學年度成果交流會</div>
+        </div>
+        <p class="text-cyan-100/70 text-sm leading-relaxed">
+          臺北聯合大學系統 · 四校聯合辦理<br />
+          教學實踐研究 暨 大學社會責任實踐計畫
+        </p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4 text-amber-200">快速連結</h4>
+        <ul class="space-y-2.5 text-cyan-100/80 text-sm">
+          <li><a href="agenda.html" class="hover:text-white transition">活動議程</a></li>
+          <li><a href="field-trip.html" class="hover:text-white transition">場域踏查路線</a></li>
+          <li><a href="transport.html" class="hover:text-white transition">交通與地圖</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">聯繫我們</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4 text-amber-200">聯絡資訊</h4>
+        <ul class="space-y-2.5 text-cyan-100/80 text-sm">
+          <li class="flex items-start gap-2"><i data-lucide="building-2" class="w-4 h-4 mt-0.5 shrink-0"></i><span>國立臺灣海洋大學<br />教務處教學中心</span></li>
+          <li class="flex items-start gap-2"><i data-lucide="phone" class="w-4 h-4 mt-0.5 shrink-0"></i><span>(02) 2462-2192</span></li>
+          <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i><span>基隆市中正區北寧路2號</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 text-center text-cyan-100/50 text-xs">
+      © 2022 國立臺灣海洋大學 · National Taiwan Ocean University
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>window.addEventListener('DOMContentLoaded', () => lucide.createIcons());</script>
+</body>
+</html>
