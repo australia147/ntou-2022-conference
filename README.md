@@ -1,9 +1,9 @@
-# 110 學年度教學實踐研究暨大學社會責任實踐計畫成果交流會
+# TPR 2026 @ NTOU · 教學實踐研究暨大學社會責任實踐成果交流會
 
-National Taiwan Ocean University · 2022.07.21 成果交流會官方網站
+National Taiwan Ocean University · 2026.06.22–23 成果交流會官方網站
 
-🌐 **網站**：https://ntou2022.ntouctl.org
-📝 **編輯後台**：https://ntou2022.ntouctl.org/admin/
+🌐 **網站**：https://tpr2026.ntouctl.org
+📝 **編輯後台**：https://tpr2026.ntouctl.org/admin/
 
 > 改自原 [Google Sites 版本](https://sites.google.com/email.ntou.edu.tw/2022-ntou-tpr-usr/)，採現代海洋風格重新設計，並接上 Sveltia CMS 讓非技術人員可以自行編輯。
 
@@ -64,7 +64,7 @@ ntou_redesign/
 
 ```
 ┌─ 編輯者瀏覽器 ─────────────────────────┐
-│ ntou2022.ntouctl.org/admin/           │
+│ tpr2026.ntouctl.org/admin/           │
 │ (Sveltia CMS)                          │
 └────────────┬───────────────────────────┘
              │ 透過 GitHub API commit
@@ -76,7 +76,7 @@ ntou_redesign/
              │ push 觸發 GitHub Actions
              ▼
 ┌─ GitHub Pages CDN ─────────────────────┐
-│ ntou2022.ntouctl.org                   │
+│ tpr2026.ntouctl.org                   │
 │ HTML 用 Alpine.js fetch JSON 渲染      │
 └────────────────────────────────────────┘
 ```
@@ -156,5 +156,5 @@ Sveltia CMS 預設使用 GitHub OAuth：
 
 ## 🤝 貢獻
 
-1. 編輯內容用 [後台](https://ntou2022.ntouctl.org/admin/)（推薦）
+1. 編輯內容用 [後台](https://tpr2026.ntouctl.org/admin/)（推薦）
 2. 修改設計或結構：fork → branch → PR

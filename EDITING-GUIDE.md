@@ -15,7 +15,7 @@
 打開瀏覽器，輸入：
 
 ```
-https://ntou2022.ntouctl.org/admin/
+https://tpr2026.ntouctl.org/admin/
 ```
 
 第一次進去會要你 **「Sign in with GitHub」**，點下去 → 授權 → 完成。

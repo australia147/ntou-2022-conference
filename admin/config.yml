@@ -13,8 +13,8 @@ backend:
 media_folder: assets/images/uploads
 public_folder: /assets/images/uploads
 
-site_url: https://ntou2022.ntouctl.org
-display_url: https://ntou2022.ntouctl.org
+site_url: https://tpr2026.ntouctl.org
+display_url: https://tpr2026.ntouctl.org
 locale: zh_Hant
 
 # ====================================================================
