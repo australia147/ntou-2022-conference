@@ -1,6 +1,7 @@
 # ====================================================================
 # Sveltia CMS 設定檔
 # 此檔案定義後台可編輯的所有欄位
+# 大部分欄位可空白，避免擋住存檔。
 # ====================================================================
 
 backend:
@@ -12,11 +13,8 @@ backend:
 media_folder: assets/images/uploads
 public_folder: /assets/images/uploads
 
-# 編輯時瀏覽器顯示
 site_url: https://ntou2022.ntouctl.org
 display_url: https://ntou2022.ntouctl.org
-
-# 後台介面語言
 locale: zh_Hant
 
 # ====================================================================
@@ -33,27 +31,28 @@ collections:
         file: data/event.json
         format: json
         fields:
-          - { name: title_main, label: '主標題（如：110學年度）', widget: string }
-          - { name: title_part1, label: '副標題第一行', widget: string, hint: '如：教學實踐研究' }
-          - { name: title_part2, label: '副標題第二行', widget: string, hint: '如：大學社會責任實踐計畫' }
-          - { name: title_suffix, label: '結尾', widget: string, hint: '如：成果交流會' }
-          - { name: organizer_tag, label: '主辦單位標籤', widget: string }
-          - { name: tagline, label: '活動標語（首頁 Hero 區）', widget: text }
-          - { name: date, label: '活動日期', widget: string, hint: '例：2022.07.21' }
-          - { name: date_note, label: '日期備註', widget: string, hint: '例：星期四', required: false }
-          - { name: time_start, label: '開始時間', widget: string, hint: '例：09:20' }
-          - { name: time_end, label: '結束時間', widget: string, hint: '例：16:10' }
-          - { name: location, label: '活動地點', widget: string }
-          - { name: location_address, label: '地點地址', widget: string }
-          - { name: location_short, label: '地點簡稱（卡片用）', widget: string }
-          - { name: register_url, label: '報名表單網址', widget: string, hint: '請填完整網址（含 https://）' }
+          - { name: title_main, label: '主標題（如：110學年度）', widget: string, required: false }
+          - { name: title_part1, label: '副標題第一行', widget: string, required: false, hint: '如：教學實踐研究' }
+          - { name: title_part2, label: '副標題第二行', widget: string, required: false, hint: '如：大學社會責任實踐計畫' }
+          - { name: title_suffix, label: '結尾', widget: string, required: false, hint: '如：成果交流會' }
+          - { name: organizer_tag, label: '主辦單位標籤', widget: string, required: false }
+          - { name: tagline, label: '活動標語（首頁 Hero 區）', widget: text, required: false }
+          - { name: date, label: '活動日期', widget: string, required: false, hint: '例：2022.07.21' }
+          - { name: date_note, label: '日期備註', widget: string, required: false, hint: '例：星期四' }
+          - { name: time_start, label: '開始時間', widget: string, required: false, hint: '例：09:20' }
+          - { name: time_end, label: '結束時間', widget: string, required: false, hint: '例：16:10' }
+          - { name: location, label: '活動地點', widget: string, required: false }
+          - { name: location_address, label: '地點地址', widget: string, required: false }
+          - { name: location_short, label: '地點簡稱（卡片用）', widget: string, required: false }
+          - { name: register_url, label: '報名表單網址', widget: string, required: false, hint: '請填完整網址（含 https://）' }
           - name: footer
             label: '頁尾資訊'
             widget: object
+            required: false
             fields:
-              - { name: org_name, label: '單位全名', widget: text, hint: '兩行請用換行' }
-              - { name: phone, label: '聯絡電話', widget: string }
-              - { name: address, label: '地址', widget: string }
+              - { name: org_name, label: '單位全名', widget: text, required: false, hint: '兩行請用換行' }
+              - { name: phone, label: '聯絡電話', widget: string, required: false }
+              - { name: address, label: '地址', widget: string, required: false }
 
   # ───── 2. 首頁內容 ─────
   - name: homepage
@@ -68,47 +67,52 @@ collections:
           - name: about
             label: '活動介紹區塊'
             widget: object
+            required: false
             fields:
-              - { name: tag, label: '小標籤', widget: string, hint: '例：關於本次活動' }
-              - { name: title_line1, label: '標題第一行', widget: string }
-              - { name: title_line2, label: '標題第二行', widget: string }
-              - { name: intro, label: '介紹段落', widget: text, hint: '可用 ** ** 包住文字表示粗體' }
+              - { name: tag, label: '小標籤', widget: string, required: false, hint: '例：關於本次活動' }
+              - { name: title_line1, label: '標題第一行', widget: string, required: false }
+              - { name: title_line2, label: '標題第二行', widget: string, required: false }
+              - { name: intro, label: '介紹段落', widget: text, required: false, hint: '可用 ** ** 包住文字表示粗體' }
               - name: bullets
                 label: '介紹項目（每項一個勾勾）'
                 widget: list
+                required: false
                 fields:
-                  - { name: text, label: '內容', widget: text, hint: '可用 ** ** 包住文字表示粗體' }
+                  - { name: text, label: '內容', widget: text, required: false, hint: '可用 ** ** 包住文字表示粗體' }
 
           - name: cards
-            label: '快速導覽卡片（必須剛好 4 張）'
+            label: '快速導覽卡片（建議 4 張，可 1–6 張）'
             widget: list
-            min: 4
-            max: 4
+            min: 1
+            max: 6
+            required: false
             summary: '{{fields.title}}'
             fields:
-              - { name: title, label: '卡片標題', widget: string }
-              - { name: description, label: '卡片描述', widget: text }
-              - { name: link_text, label: '連結文字', widget: string }
-              - { name: link_url, label: '連結到哪頁', widget: select, options: ['agenda/', 'field-trip/', 'transport/', 'contact/'] }
+              - { name: title, label: '卡片標題', widget: string, required: false }
+              - { name: description, label: '卡片描述', widget: text, required: false }
+              - { name: link_text, label: '連結文字', widget: string, required: false }
+              - { name: link_url, label: '連結到哪頁', widget: select, options: ['agenda/', 'field-trip/', 'transport/', 'contact/'], required: false }
 
           - name: stats
-            label: '統計數字（必須剛好 4 個）'
+            label: '統計數字（建議 4 個，可 1–6 個）'
             widget: list
-            min: 4
-            max: 4
+            min: 1
+            max: 6
+            required: false
             summary: '{{fields.number}} - {{fields.label}}'
             fields:
-              - { name: number, label: '數字', widget: string, hint: '例：4、9、7H' }
-              - { name: label, label: '名稱', widget: string }
-              - { name: sublabel, label: '小字說明', widget: string }
+              - { name: number, label: '數字', widget: string, required: false, hint: '例：4、9、7H' }
+              - { name: label, label: '名稱', widget: string, required: false }
+              - { name: sublabel, label: '小字說明', widget: string, required: false }
 
           - name: cta
             label: '報名 CTA 區塊'
             widget: object
+            required: false
             fields:
-              - { name: badge, label: '頂部小標籤', widget: string, hint: '例：報名開放中' }
-              - { name: title, label: '主標題', widget: string }
-              - { name: description, label: '描述', widget: text, hint: '可用 ** ** 表示粗體，按 Enter 換行' }
+              - { name: badge, label: '頂部小標籤', widget: string, required: false, hint: '例：報名開放中' }
+              - { name: title, label: '主標題', widget: string, required: false }
+              - { name: description, label: '描述', widget: text, required: false, hint: '可用 ** ** 表示粗體，按 Enter 換行' }
 
   # ───── 3. 議程 ─────
   - name: agenda
@@ -120,24 +124,25 @@ collections:
         file: data/agenda.json
         format: json
         fields:
-          - { name: page_title, label: '頁面主標題', widget: string }
-          - { name: page_description, label: '頁面說明', widget: text }
-          - { name: keynote_topic, label: '主題演講題目', widget: string }
-          - { name: keynote_speaker_name, label: '主題演講講者姓名', widget: string }
-          - { name: keynote_speaker_title, label: '主題演講講者頭銜', widget: string }
+          - { name: page_title, label: '頁面主標題', widget: string, required: false }
+          - { name: page_description, label: '頁面說明', widget: text, required: false }
+          - { name: keynote_topic, label: '主題演講題目', widget: string, required: false }
+          - { name: keynote_speaker_name, label: '主題演講講者姓名', widget: string, required: false }
+          - { name: keynote_speaker_title, label: '主題演講講者頭銜', widget: string, required: false }
 
           - name: sessions
             label: '議程時段（按時間順序）'
             widget: list
+            required: false
             summary: '{{fields.time}} - {{fields.title}}{{fields.headline}}'
             fields:
-              - { name: time, label: '時間', widget: string, hint: '例：08:30–09:20' }
+              - { name: time, label: '時間', widget: string, required: false, hint: '例：08:30–09:20' }
               - { name: tag, label: '左側標籤（短）', widget: string, required: false, hint: '例：報到、致詞、開幕' }
               - { name: title, label: '時段標題', widget: string, required: false }
               - { name: subtitle, label: '副標題（補充說明）', widget: text, required: false }
               - { name: location, label: '地點', widget: string, required: false }
               - { name: icon, label: '圖示（lucide 名稱）', widget: string, required: false, hint: '例：utensils、coffee、home。沒有就空白' }
-              - { name: is_keynote, label: '是否為主題演講？', widget: boolean, default: false, hint: '勾選後會顯示主題演講題目與講者' }
+              - { name: is_keynote, label: '是否為主題演講？', widget: boolean, default: false, required: false, hint: '勾選後會顯示主題演講題目與講者' }
               - { name: headline, label: '平行場次標頭', widget: string, required: false, hint: '例：三場次平行進行' }
 
               - name: groups
@@ -146,16 +151,17 @@ collections:
                 required: false
                 summary: '{{fields.category_label}}'
                 fields:
-                  - { name: category_label, label: '群組標籤', widget: string, hint: '例：教學實踐研究學門成果交流會' }
-                  - { name: category_color, label: '群組顏色', widget: select, options: ['ocean', 'teal', 'sand', 'coral'], default: 'ocean' }
+                  - { name: category_label, label: '群組標籤', widget: string, required: false, hint: '例：教學實踐研究學門成果交流會' }
+                  - { name: category_color, label: '群組顏色', widget: select, options: ['ocean', 'teal', 'sand', 'coral'], default: 'ocean', required: false }
                   - name: tracks
                     label: '場次列表'
                     widget: list
+                    required: false
                     summary: '{{fields.label}} - {{fields.title}}'
                     fields:
-                      - { name: label, label: '場次標籤', widget: string, hint: '例：A 場、B 場' }
-                      - { name: title, label: '場次主題', widget: string }
-                      - { name: location, label: '地點', widget: string }
+                      - { name: label, label: '場次標籤', widget: string, required: false, hint: '例：A 場、B 場' }
+                      - { name: title, label: '場次主題', widget: string, required: false }
+                      - { name: location, label: '地點', widget: string, required: false }
 
               - { name: field_trip_card, label: '顯示場域踏查卡片？', widget: boolean, default: false, required: false }
               - { name: field_trip_note, label: '場域踏查附註', widget: string, required: false, hint: '例：（持續至 16:10）' }
@@ -163,11 +169,12 @@ collections:
           - name: notes
             label: '頁尾提醒卡片'
             widget: list
+            required: false
             summary: '{{fields.title}}'
             fields:
-              - { name: title, label: '標題', widget: string }
-              - { name: content, label: '說明內容', widget: text }
-              - { name: color, label: '顏色', widget: select, options: ['ocean-cyan', 'ocean-teal', 'coral', 'amber-500'], default: 'ocean-cyan' }
+              - { name: title, label: '標題', widget: string, required: false }
+              - { name: content, label: '說明內容', widget: text, required: false }
+              - { name: color, label: '顏色', widget: select, options: ['ocean-cyan', 'ocean-teal', 'coral', 'amber-500'], default: 'ocean-cyan', required: false }
 
   # ───── 4. 場域踏查 ─────
   - name: field_trip
@@ -179,26 +186,28 @@ collections:
         file: data/field-trip.json
         format: json
         fields:
-          - { name: page_title, label: '頁面主標題', widget: string }
-          - { name: page_description, label: '頁面說明', widget: text }
-          - { name: meeting_point, label: '集合地點', widget: string }
-          - { name: duration, label: '活動時間', widget: string, hint: '例：13:20–16:10' }
+          - { name: page_title, label: '頁面主標題', widget: string, required: false }
+          - { name: page_description, label: '頁面說明', widget: text, required: false }
+          - { name: meeting_point, label: '集合地點', widget: string, required: false }
+          - { name: duration, label: '活動時間', widget: string, required: false, hint: '例：13:20–16:10' }
 
           - name: routes
             label: '路線列表'
             widget: list
+            required: false
             summary: '{{fields.name}} - {{fields.subtitle}}'
             fields:
-              - { name: name, label: '路線名稱', widget: string, hint: '例：和平島' }
-              - { name: subtitle, label: '副標', widget: string, hint: '例：文化巡禮' }
-              - { name: description, label: '路線介紹', widget: text }
-              - { name: tags, label: '標籤（用半形逗號分隔）', widget: string, hint: '例：古蹟導覽,市場文化,免費參加' }
+              - { name: name, label: '路線名稱', widget: string, required: false, hint: '例：和平島' }
+              - { name: subtitle, label: '副標', widget: string, required: false, hint: '例：文化巡禮' }
+              - { name: description, label: '路線介紹', widget: text, required: false }
+              - { name: tags, label: '標籤（用半形逗號分隔）', widget: string, required: false, hint: '例：古蹟導覽,市場文化,免費參加' }
               - name: stops
                 label: '行程站點（依順序）'
                 widget: list
+                required: false
                 summary: '{{fields.name}}'
                 fields:
-                  - { name: name, label: '站點名稱', widget: string }
+                  - { name: name, label: '站點名稱', widget: string, required: false }
                   - { name: description, label: '說明', widget: text, required: false }
               - { name: fee_note, label: '費用提醒（沒費用就空白）', widget: text, required: false, hint: '可用 ** ** 表示粗體' }
 
@@ -212,40 +221,44 @@ collections:
         file: data/transport.json
         format: json
         fields:
-          - { name: page_title, label: '頁面主標題', widget: string }
-          - { name: page_description, label: '頁面說明', widget: text }
+          - { name: page_title, label: '頁面主標題', widget: string, required: false }
+          - { name: page_description, label: '頁面說明', widget: text, required: false }
 
           - name: shuttle_outbound
             label: '去程班次（高鐵→海大）'
             widget: list
+            required: false
             summary: '{{fields.time}}'
             fields:
-              - { name: time, label: '發車時間', widget: string, hint: '例：08:10' }
-          - { name: shuttle_outbound_meeting, label: '去程集合地點', widget: string }
+              - { name: time, label: '發車時間', widget: string, required: false, hint: '例：08:10' }
+          - { name: shuttle_outbound_meeting, label: '去程集合地點', widget: string, required: false }
 
           - name: shuttle_return
             label: '返程班次（海大→高鐵）'
             widget: list
+            required: false
             summary: '{{fields.time}}'
             fields:
-              - { name: time, label: '發車時間', widget: string }
-          - { name: shuttle_return_meeting, label: '返程集合地點', widget: string }
+              - { name: time, label: '發車時間', widget: string, required: false }
+          - { name: shuttle_return_meeting, label: '返程集合地點', widget: string, required: false }
 
           - name: driving
             label: '自駕資訊'
             widget: object
+            required: false
             fields:
-              - { name: warning, label: '提醒文字', widget: text, hint: '可用 ** ** 表示粗體' }
-              - { name: campus_park, label: '校內停車說明', widget: text }
-              - { name: recommended_park, label: '推薦停車場說明', widget: text }
+              - { name: warning, label: '提醒文字', widget: text, required: false, hint: '可用 ** ** 表示粗體' }
+              - { name: campus_park, label: '校內停車說明', widget: text, required: false }
+              - { name: recommended_park, label: '推薦停車場說明', widget: text, required: false }
 
           - name: public_transport
             label: '大眾運輸選項'
             widget: list
+            required: false
             summary: '{{fields.title}}'
             fields:
-              - { name: title, label: '名稱', widget: string, hint: '例：火車' }
-              - { name: description, label: '說明', widget: text, hint: '可用 ** ** 表示粗體' }
+              - { name: title, label: '名稱', widget: string, required: false, hint: '例：火車' }
+              - { name: description, label: '說明', widget: text, required: false, hint: '可用 ** ** 表示粗體' }
 
   # ───── 6. 聯繫我們 ─────
   - name: contact
@@ -257,25 +270,27 @@ collections:
         file: data/contact.json
         format: json
         fields:
-          - { name: page_title, label: '頁面主標題', widget: string }
-          - { name: page_description, label: '頁面說明', widget: text }
+          - { name: page_title, label: '頁面主標題', widget: string, required: false }
+          - { name: page_description, label: '頁面說明', widget: text, required: false }
 
           - name: line
             label: 'LINE@ 客服'
             widget: object
+            required: false
             fields:
-              - { name: title, label: '標題', widget: string }
-              - { name: description, label: '說明', widget: text }
-              - { name: hours, label: '服務時間', widget: string }
-              - { name: url, label: 'LINE@ 連結網址', widget: string, hint: '完整網址，含 https://' }
+              - { name: title, label: '標題', widget: string, required: false }
+              - { name: description, label: '說明', widget: text, required: false }
+              - { name: hours, label: '服務時間', widget: string, required: false }
+              - { name: url, label: 'LINE@ 連結網址', widget: string, required: false, hint: '完整網址，含 https://' }
 
           - name: contacts
             label: '承辦人列表'
             widget: list
+            required: false
             summary: '{{fields.name}}'
             fields:
-              - { name: name, label: '姓名', widget: string }
-              - { name: title, label: '職稱', widget: string, hint: '例：承辦人' }
-              - { name: phone, label: '電話', widget: string }
+              - { name: name, label: '姓名', widget: string, required: false }
+              - { name: title, label: '職稱', widget: string, required: false, hint: '例：承辦人' }
+              - { name: phone, label: '電話', widget: string, required: false }
               - { name: extension, label: '分機', widget: string, required: false }
               - { name: email, label: '電子郵件', widget: string, required: false }
