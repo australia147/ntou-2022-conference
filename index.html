@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TPR 2026 @ NTOU 教學實踐研究暨大學社會責任實踐成果交流會</title>
+<title>智慧導引心航道：AI、SEL 與海洋教育的教學研究藍圖</title>
 <meta name="description" content="2026年6月22–23日於國立臺灣海洋大學舉行，由臺北聯合大學系統四校共同辦理的成果交流會。" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,7 +34,7 @@
 <script defer src="assets/js/main.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body data-depth="0" x-data="homeData()" x-cloak>
+<body data-depth="0" x-data="homeData()" x-effect="if (event.title_part1 || event.title_part2) document.title = (event.title_part1 || '') + (event.title_part2 || '')" x-cloak>
 
 <!-- ============ NAVBAR ============ -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-all duration-200">
@@ -99,8 +99,7 @@
 
       <h1 class="fade-up text-white font-black tracking-tight leading-[1.1] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-6">
         <span x-text="event.title_main"></span><br />
-        <span class="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent" x-text="event.title_part1"></span>
-        <span class="text-white/90 text-3xl sm:text-4xl lg:text-5xl">暨</span><br />
+        <span class="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent" x-text="event.title_part1"></span><br />
         <span class="bg-gradient-to-r from-cyan-200 to-teal-200 bg-clip-text text-transparent" x-text="event.title_part2"></span><br />
         <span x-text="event.title_suffix"></span>
       </h1>
