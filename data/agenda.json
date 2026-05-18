@@ -1,70 +1,128 @@
 {
   "page_title": "活動議程一覽",
-  "page_description": "2022 年 7 月 21 日（星期四） · 國立臺灣海洋大學\n上下午平行多場次，請依興趣選擇參與場別。",
+  "page_description": "2026 年 6 月 22 日（星期一） · 國立臺灣海洋大學",
+  "keynote_topic": "如何將教學實踐研究與大學社會責任實踐做結合",
   "keynote_speaker_name": "黃俊儒",
   "keynote_speaker_title": "教育部教學實踐研究計畫 計畫總主持人",
-  "keynote_topic": "如何將教學實踐研究與大學社會責任實踐做結合",
   "sessions": [
     {
       "time": "08:30–09:20",
       "tag": "報到",
       "title": "活動報到",
-      "location": "海洋廳"
+      "subtitle": "",
+      "location": "海洋廳",
+      "icon": "",
+      "headline": "",
+      "field_trip_note": ""
     },
     {
       "time": "09:20–09:35",
       "tag": "致詞",
       "title": "主管致詞",
-      "subtitle": "「110學年度 教學實踐研究 暨 大學社會責任實踐計畫 成果交流會」"
+      "subtitle": "「110學年度 教學實踐研究 暨 大學社會責任實踐計畫 成果交流會」",
+      "location": "",
+      "icon": "",
+      "headline": "",
+      "field_trip_note": ""
     },
     {
       "time": "09:35–09:40",
       "tag": "開幕",
-      "title": "開幕式 及 大合照"
+      "title": "開幕式 及 大合照",
+      "subtitle": "",
+      "location": "",
+      "icon": "",
+      "headline": "",
+      "field_trip_note": ""
     },
     {
       "time": "09:40–10:00",
       "tag": "主題演講",
-      "is_keynote": true
+      "title": "",
+      "subtitle": "",
+      "location": "",
+      "icon": "",
+      "is_keynote": true,
+      "headline": "",
+      "field_trip_note": ""
     },
     {
       "time": "10:00–12:20",
+      "tag": "",
+      "title": "",
+      "subtitle": "",
+      "location": "",
+      "icon": "",
       "headline": "三場次平行進行",
       "groups": [
         {
           "category_label": "教學實踐研究學門成果交流會",
           "category_color": "ocean",
           "tracks": [
-            { "label": "A 場", "title": "民生、社會（含法政）、通識（含體育）學門", "location": "海洋廳" },
-            { "label": "B 場", "title": "[專案] 大學社會責任、技術實作學門", "location": "行政大樓第一演講廳" }
+            {
+              "label": "A 場",
+              "title": "民生、社會（含法政）、通識（含體育）學門",
+              "location": "海洋廳"
+            },
+            {
+              "label": "B 場",
+              "title": "[專案] 大學社會責任、技術實作學門",
+              "location": "行政大樓第一演講廳"
+            }
           ]
         },
         {
           "category_label": "大學社會責任實踐成果交流會 (USR)",
           "category_color": "teal",
           "tracks": [
-            { "label": "C 場", "title": "臺北醫學大學・臺北科技大學・臺北大學・臺灣海洋大學", "location": "行政大樓第二演講廳" }
+            {
+              "label": "C 場",
+              "title": "臺北醫學大學・臺北科技大學・臺北大學・臺灣海洋大學",
+              "location": "行政大樓第二演講廳"
+            }
           ]
         }
-      ]
+      ],
+      "field_trip_note": ""
     },
     {
       "time": "12:20–13:20",
       "tag": "餐敘",
       "title": "餐敘交流",
-      "icon": "utensils"
+      "subtitle": "",
+      "location": "",
+      "icon": "utensils",
+      "headline": "",
+      "field_trip_note": ""
     },
     {
       "time": "13:20–14:20",
+      "tag": "",
+      "title": "",
+      "subtitle": "",
+      "location": "",
+      "icon": "",
       "headline": "學門 + 場域踏查 同步進行",
       "groups": [
         {
           "category_label": "學門成果交流會",
           "category_color": "ocean",
           "tracks": [
-            { "label": "A 場", "title": "人文藝術及設計學門", "location": "海洋廳" },
-            { "label": "B 場", "title": "工程、商業及管理、數理學門", "location": "行政大樓第一演講廳" },
-            { "label": "C 場", "title": "生技農科、教育、醫護學門", "location": "行政大樓第二演講廳" }
+            {
+              "label": "A 場",
+              "title": "人文藝術及設計學門",
+              "location": "海洋廳"
+            },
+            {
+              "label": "B 場",
+              "title": "工程、商業及管理、數理學門",
+              "location": "行政大樓第一演講廳"
+            },
+            {
+              "label": "C 場",
+              "title": "生技農科、教育、醫護學門",
+              "location": "行政大樓第二演講廳"
+            }
           ]
         }
       ],
@@ -75,29 +133,54 @@
       "time": "14:20–14:50",
       "tag": "茶敘",
       "title": "茶敘 及 成果展覽",
-      "icon": "coffee"
+      "subtitle": "",
+      "location": "",
+      "icon": "coffee",
+      "headline": "",
+      "field_trip_note": ""
     },
     {
       "time": "14:50–16:10",
+      "tag": "",
+      "title": "",
+      "subtitle": "",
+      "location": "",
+      "icon": "",
       "headline": "學門成果交流會（下半場）",
       "groups": [
         {
           "category_label": "學門成果交流會",
           "category_color": "ocean",
           "tracks": [
-            { "label": "A 場", "title": "人文藝術及設計學門", "location": "海洋廳" },
-            { "label": "B 場", "title": "工程、商業及管理、數理學門", "location": "行政大樓第一演講廳" },
-            { "label": "C 場", "title": "生技農科、教育、醫護學門", "location": "行政大樓第二演講廳" }
+            {
+              "label": "A 場",
+              "title": "人文藝術及設計學門",
+              "location": "海洋廳"
+            },
+            {
+              "label": "B 場",
+              "title": "工程、商業及管理、數理學門",
+              "location": "行政大樓第一演講廳"
+            },
+            {
+              "label": "C 場",
+              "title": "生技農科、教育、醫護學門",
+              "location": "行政大樓第二演講廳"
+            }
           ]
         }
-      ]
+      ],
+      "field_trip_note": ""
     },
     {
       "time": "16:10",
       "tag": "賦歸",
       "title": "賦歸",
       "subtitle": "返程接駁車 16:30 自展示廳門口出發前往高鐵南港站",
-      "icon": "home"
+      "location": "",
+      "icon": "home",
+      "headline": "",
+      "field_trip_note": ""
     }
   ],
   "notes": [
