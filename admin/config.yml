@@ -36,7 +36,7 @@ collections:
           - { name: title_part2, label: '副標題第二行', widget: string, required: false, hint: '如：大學社會責任實踐計畫' }
           - { name: title_suffix, label: '結尾', widget: string, required: false, hint: '如：成果交流會' }
           - { name: organizer_tag, label: '主辦單位標籤', widget: string, required: false }
-          - { name: tagline, label: '活動標語（首頁 Hero 區）', widget: text, required: false }
+          - { name: tagline, label: '活動標語（首頁 Hero 區）', widget: markdown, required: false }
           - { name: date, label: '活動日期', widget: string, required: false, hint: '例：2022.07.21' }
           - { name: date_note, label: '日期備註', widget: string, required: false, hint: '例：星期四' }
           - { name: time_start, label: '開始時間', widget: string, required: false, hint: '例：09:20' }
@@ -50,7 +50,7 @@ collections:
             widget: object
             required: false
             fields:
-              - { name: org_name, label: '單位全名', widget: text, required: false, hint: '兩行請用換行' }
+              - { name: org_name, label: '單位全名', widget: markdown, required: false, hint: '兩行請用換行' }
               - { name: phone, label: '聯絡電話', widget: string, required: false }
               - { name: address, label: '地址', widget: string, required: false }
 
@@ -72,13 +72,13 @@ collections:
               - { name: tag, label: '小標籤', widget: string, required: false, hint: '例：關於本次活動' }
               - { name: title_line1, label: '標題第一行', widget: string, required: false }
               - { name: title_line2, label: '標題第二行', widget: string, required: false }
-              - { name: intro, label: '介紹段落', widget: text, required: false, hint: '可用 ** ** 包住文字表示粗體' }
+              - { name: intro, label: '介紹段落', widget: markdown, required: false, hint: '可用 ** ** 包住文字表示粗體' }
               - name: bullets
                 label: '介紹項目（每項一個勾勾）'
                 widget: list
                 required: false
                 fields:
-                  - { name: text, label: '內容', widget: text, required: false, hint: '可用 ** ** 包住文字表示粗體' }
+                  - { name: text, label: '內容', widget: markdown, required: false, hint: '可用 ** ** 包住文字表示粗體' }
 
           - name: cards
             label: '快速導覽卡片（建議 4 張，可 1–6 張）'
@@ -89,7 +89,7 @@ collections:
             summary: '{{fields.title}}'
             fields:
               - { name: title, label: '卡片標題', widget: string, required: false }
-              - { name: description, label: '卡片描述', widget: text, required: false }
+              - { name: description, label: '卡片描述', widget: markdown, required: false }
               - { name: link_text, label: '連結文字', widget: string, required: false }
               - { name: link_url, label: '連結到哪頁', widget: select, options: ['agenda/', 'field-trip/', 'transport/', 'contact/'], required: false }
 
@@ -112,7 +112,7 @@ collections:
             fields:
               - { name: badge, label: '頂部小標籤', widget: string, required: false, hint: '例：報名開放中' }
               - { name: title, label: '主標題', widget: string, required: false }
-              - { name: description, label: '描述', widget: text, required: false, hint: '可用 ** ** 表示粗體，按 Enter 換行' }
+              - { name: description, label: '描述', widget: markdown, required: false, hint: '可用 ** ** 表示粗體，按 Enter 換行' }
 
   # ───── 3. 議程 ─────
   - name: agenda
@@ -125,7 +125,7 @@ collections:
         format: json
         fields:
           - { name: page_title, label: '頁面主標題', widget: string, required: false }
-          - { name: page_description, label: '頁面說明', widget: text, required: false }
+          - { name: page_description, label: '頁面說明', widget: markdown, required: false }
           - { name: keynote_topic, label: '主題演講題目', widget: string, required: false }
           - { name: keynote_speaker_name, label: '主題演講講者姓名', widget: string, required: false }
           - { name: keynote_speaker_title, label: '主題演講講者頭銜', widget: string, required: false }
@@ -139,7 +139,7 @@ collections:
               - { name: time, label: '時間', widget: string, required: false, hint: '例：08:30–09:20' }
               - { name: tag, label: '左側標籤（短）', widget: string, required: false, hint: '例：報到、致詞、開幕' }
               - { name: title, label: '時段標題', widget: string, required: false }
-              - { name: subtitle, label: '副標題（補充說明）', widget: text, required: false }
+              - { name: subtitle, label: '副標題（補充說明）', widget: markdown, required: false }
               - { name: location, label: '地點', widget: string, required: false }
               - { name: icon, label: '圖示（lucide 名稱）', widget: string, required: false, hint: '例：utensils、coffee、home。沒有就空白' }
               - { name: is_keynote, label: '是否為主題演講？', widget: boolean, default: false, required: false, hint: '勾選後會顯示主題演講題目與講者' }
@@ -174,7 +174,7 @@ collections:
             summary: '{{fields.title}}'
             fields:
               - { name: title, label: '標題', widget: string, required: false }
-              - { name: content, label: '說明內容', widget: text, required: false }
+              - { name: content, label: '說明內容', widget: markdown, required: false }
               - { name: color, label: '顏色', widget: select, options: ['ocean-cyan', 'ocean-teal', 'coral', 'amber-500'], default: 'ocean-cyan', required: false }
 
   # ───── 4. 場域踏查 ─────
@@ -188,7 +188,7 @@ collections:
         format: json
         fields:
           - { name: page_title, label: '頁面主標題', widget: string, required: false }
-          - { name: page_description, label: '頁面說明', widget: text, required: false }
+          - { name: page_description, label: '頁面說明', widget: markdown, required: false }
           - { name: meeting_point, label: '集合地點', widget: string, required: false }
           - { name: duration, label: '活動時間', widget: string, required: false, hint: '例：13:20–16:10' }
 
@@ -200,7 +200,7 @@ collections:
             fields:
               - { name: name, label: '路線名稱', widget: string, required: false, hint: '例：和平島' }
               - { name: subtitle, label: '副標', widget: string, required: false, hint: '例：文化巡禮' }
-              - { name: description, label: '路線介紹', widget: text, required: false }
+              - { name: description, label: '路線介紹', widget: markdown, required: false }
               - { name: tags, label: '標籤（用半形逗號分隔）', widget: string, required: false, hint: '例：古蹟導覽,市場文化,免費參加' }
               - name: stops
                 label: '行程站點（依順序）'
@@ -209,8 +209,8 @@ collections:
                 summary: '{{fields.name}}'
                 fields:
                   - { name: name, label: '站點名稱', widget: string, required: false }
-                  - { name: description, label: '說明', widget: text, required: false }
-              - { name: fee_note, label: '費用提醒（沒費用就空白）', widget: text, required: false, hint: '可用 ** ** 表示粗體' }
+                  - { name: description, label: '說明', widget: markdown, required: false }
+              - { name: fee_note, label: '費用提醒（沒費用就空白）', widget: markdown, required: false, hint: '可用 ** ** 表示粗體' }
 
   # ───── 5. 交通資訊 ─────
   - name: transport
@@ -223,7 +223,7 @@ collections:
         format: json
         fields:
           - { name: page_title, label: '頁面主標題', widget: string, required: false }
-          - { name: page_description, label: '頁面說明', widget: text, required: false }
+          - { name: page_description, label: '頁面說明', widget: markdown, required: false }
 
           - name: shuttle_outbound
             label: '去程班次（南港→海大）'
@@ -252,9 +252,9 @@ collections:
             widget: object
             required: false
             fields:
-              - { name: warning, label: '提醒文字', widget: text, required: false, hint: '可用 ** ** 表示粗體' }
-              - { name: campus_park, label: '校內停車說明', widget: text, required: false }
-              - { name: recommended_park, label: '推薦停車場說明', widget: text, required: false }
+              - { name: warning, label: '提醒文字', widget: markdown, required: false, hint: '可用 ** ** 表示粗體' }
+              - { name: campus_park, label: '校內停車說明', widget: markdown, required: false }
+              - { name: recommended_park, label: '推薦停車場說明', widget: markdown, required: false }
 
           - name: public_transport
             label: '大眾運輸選項'
@@ -263,7 +263,7 @@ collections:
             summary: '{{fields.title}}'
             fields:
               - { name: title, label: '名稱', widget: string, required: false, hint: '例：火車' }
-              - { name: description, label: '說明', widget: text, required: false, hint: '可用 ** ** 表示粗體' }
+              - { name: description, label: '說明', widget: markdown, required: false, hint: '可用 ** ** 表示粗體' }
 
   # ───── 6. 聯繫我們 ─────
   - name: contact
@@ -276,7 +276,7 @@ collections:
         format: json
         fields:
           - { name: page_title, label: '頁面主標題', widget: string, required: false }
-          - { name: page_description, label: '頁面說明', widget: text, required: false }
+          - { name: page_description, label: '頁面說明', widget: markdown, required: false }
 
           - name: line
             label: 'LINE@ 客服'
@@ -284,7 +284,7 @@ collections:
             required: false
             fields:
               - { name: title, label: '標題', widget: string, required: false }
-              - { name: description, label: '說明', widget: text, required: false }
+              - { name: description, label: '說明', widget: markdown, required: false }
               - { name: hours, label: '服務時間', widget: string, required: false }
               - { name: url, label: 'LINE@ 連結網址', widget: string, required: false, hint: '完整網址，含 https://' }
 

@@ -2,9 +2,14 @@
 // 內容資料載入工具（給 Alpine.js 使用）
 // =============================================================
 
-// 簡易 markdown：支援 **粗體** 與換行
+// 完整 markdown 解析（透過 CDN 載入的 marked.js）
+// 支援：粗體、斜體、清單、連結、圖片、表格、標題等
+// 若 marked.js 尚未載入或失敗，回退成最簡實作（**粗體** + 換行）
 window.md = function (text) {
   if (text == null) return '';
+  if (window.marked && typeof window.marked.parse === 'function') {
+    return window.marked.parse(String(text), { breaks: true, gfm: true });
+  }
   return String(text)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')

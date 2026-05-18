@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="assets/css/style.css" />
 <style>[x-cloak]{display:none!important}</style>
 <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js" defer></script>
 <script defer src="assets/js/main.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
@@ -104,7 +105,7 @@
         <span x-text="event.title_suffix"></span>
       </h1>
 
-      <p class="fade-up text-cyan-100/90 text-lg sm:text-xl mb-10 max-w-2xl leading-relaxed" x-text="event.tagline"></p>
+      <p class="fade-up text-cyan-100/90 text-lg sm:text-xl mb-10 max-w-2xl leading-relaxed" x-html="md(event.tagline)"></p>
 
       <!-- key info row -->
       <div class="fade-up grid sm:grid-cols-3 gap-4 mb-10 max-w-3xl">
@@ -191,7 +192,7 @@
               <i :data-lucide="cardStyle(i).icon" class="w-6 h-6 text-white"></i>
             </div>
             <h3 class="text-lg font-bold text-ocean-deep mb-2" x-text="card.title"></h3>
-            <p class="text-slate-500 text-sm leading-relaxed mb-4" x-text="card.description"></p>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4" x-html="md(card.description)"></p>
             <span class="font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all"
                   :class="cardStyle(i).link">
               <span x-text="card.link_text"></span> <i data-lucide="arrow-right" class="w-4 h-4"></i>

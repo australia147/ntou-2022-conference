@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="../assets/css/style.css" />
 <style>[x-cloak]{display:none!important}</style>
 <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js" defer></script>
 <script defer src="../assets/js/main.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
@@ -243,7 +244,7 @@
                     <i data-lucide="map-pin" class="w-4 h-4"></i>
                     <span x-text="s.location"></span>
                   </p>
-                  <p class="text-slate-600 text-sm mt-1" x-show="s.subtitle" x-text="s.subtitle"></p>
+                  <div class="text-slate-600 text-sm mt-1" x-show="s.subtitle" x-html="md(s.subtitle)"></div>
                 </div>
               </div>
             </template>
@@ -265,7 +266,7 @@
              :class="'text-' + (n.color || 'ocean-cyan')"></i>
           <div class="text-sm">
             <div class="font-bold text-ocean-deep mb-1" x-text="n.title"></div>
-            <div class="text-slate-600 leading-relaxed" x-text="n.content"></div>
+            <div class="text-slate-600 leading-relaxed" x-html="md(n.content)"></div>
           </div>
         </div>
       </template>

@@ -243,3 +243,61 @@ body {
     radial-gradient(ellipse at top, rgba(8, 145, 178, 0.18), transparent 60%),
     linear-gradient(180deg, #0c4a6e 0%, #082f49 100%);
 }
+
+/* ===== Markdown 內容（CMS 富文字欄位渲染出的 HTML） ===== */
+[x-html] img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 0.75em 0;
+  display: block;
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.12);
+}
+[x-html] a {
+  color: var(--ocean-blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+[x-html] a:hover { color: var(--ocean-cyan); }
+[x-html] ul { list-style: disc; padding-left: 1.25em; margin: 0.5em 0; }
+[x-html] ol { list-style: decimal; padding-left: 1.25em; margin: 0.5em 0; }
+[x-html] li { margin: 0.25em 0; }
+[x-html] h1 { font-size: 1.5em; font-weight: 700; margin: 0.6em 0 0.3em; color: var(--ocean-deep); }
+[x-html] h2 { font-size: 1.3em; font-weight: 700; margin: 0.6em 0 0.3em; color: var(--ocean-deep); }
+[x-html] h3 { font-size: 1.15em; font-weight: 700; margin: 0.5em 0 0.25em; color: var(--ocean-deep); }
+[x-html] h4 { font-size: 1.05em; font-weight: 700; margin: 0.4em 0 0.2em; }
+[x-html] blockquote {
+  border-left: 4px solid var(--ocean-cyan);
+  padding: 0.4em 0 0.4em 1em;
+  margin: 0.5em 0;
+  color: #475569;
+  background: rgba(8, 145, 178, 0.05);
+  border-radius: 0 6px 6px 0;
+}
+[x-html] code {
+  background: #f1f5f9;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #be185d;
+}
+[x-html] pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 0.75em 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.9em;
+}
+[x-html] pre code { background: transparent; color: inherit; padding: 0; }
+[x-html] table {
+  border-collapse: collapse;
+  margin: 0.75em 0;
+  width: 100%;
+}
+[x-html] th, [x-html] td {
+  border: 1px solid #e2e8f0;
+  padding: 0.4em 0.7em;
+  text-align: left;
+}
+[x-html] th { background: #f8fafc; font-weight: 600; }

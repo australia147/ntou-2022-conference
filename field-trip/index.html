@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="../assets/css/style.css" />
 <style>[x-cloak]{display:none!important}</style>
 <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js" defer></script>
 <script defer src="../assets/js/main.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
@@ -140,7 +141,7 @@
             <span class="text-2xl sm:text-3xl bg-gradient-to-r bg-clip-text text-transparent"
                   :class="routeTheme(i).title_grad" x-text="r.subtitle"></span>
           </h2>
-          <p class="text-slate-600 leading-relaxed mb-6" x-text="r.description"></p>
+          <div class="text-slate-600 leading-relaxed mb-6" x-html="md(r.description)"></div>
           <div class="flex flex-wrap gap-2 mb-6">
             <template x-for="(t, ti) in (r.tags || '').split(',').filter(x => x.trim())" :key="ti">
               <span :class="routeTheme(i).tag" x-text="t.trim()"></span>
@@ -195,7 +196,7 @@
                            :class="routeTheme(i).middle_class" x-text="si"></div>
                     </template>
                     <div class="font-bold text-ocean-deep" x-text="stop.name"></div>
-                    <div class="text-slate-500 text-sm" x-text="stop.description" x-show="stop.description"></div>
+                    <div class="text-slate-500 text-sm" x-html="md(stop.description)" x-show="stop.description"></div>
                   </li>
                 </template>
               </ol>
