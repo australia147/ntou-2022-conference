@@ -109,12 +109,18 @@
 
         <div class="space-y-3 mb-5">
           <template x-for="(b, i) in (page.shuttle_outbound || [])" :key="i">
-            <div class="flex items-center justify-between p-4 rounded-xl bg-sky-50 border border-sky-100">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-cyan" x-text="i + 1"></div>
-                <div class="font-semibold text-ocean-deep" x-text="['第一班','第二班','第三班','第四班','第五班'][i] || ('第' + (i+1) + '班')"></div>
+            <div class="p-4 rounded-xl bg-sky-50 border border-sky-100">
+              <div class="flex items-center justify-between gap-3 flex-wrap">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-cyan" x-text="i + 1"></div>
+                  <div class="font-semibold text-ocean-deep text-sm" x-text="b.day || (['第一班','第二班','第三班','第四班','第五班'][i] || ('第' + (i+1) + '班'))"></div>
+                </div>
+                <div class="font-black text-xl text-ocean-deep tabular-nums" x-text="b.time"></div>
               </div>
-              <div class="font-black text-2xl text-ocean-deep" x-text="b.time"></div>
+              <div class="flex items-start gap-1.5 text-sm text-slate-600 mt-2 pt-2 border-t border-sky-100" x-show="b.route">
+                <i data-lucide="route" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-ocean-cyan"></i>
+                <span x-text="b.route"></span>
+              </div>
             </div>
           </template>
         </div>
@@ -139,14 +145,20 @@
 
         <div class="space-y-3 mb-5">
           <template x-for="(b, i) in (page.shuttle_return || [])" :key="i">
-            <div class="flex items-center justify-between p-4 rounded-xl bg-teal-50 border border-teal-100">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-teal">
-                  <i data-lucide="bus" class="w-5 h-5"></i>
+            <div class="p-4 rounded-xl bg-teal-50 border border-teal-100">
+              <div class="flex items-center justify-between gap-3 flex-wrap">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-ocean-teal">
+                    <i data-lucide="bus" class="w-5 h-5"></i>
+                  </div>
+                  <div class="font-semibold text-ocean-deep text-sm" x-text="b.day || ((page.shuttle_return && page.shuttle_return.length > 1) ? ('第' + ['一','二','三','四','五'][i] + '班') : '返程班次')"></div>
                 </div>
-                <div class="font-semibold text-ocean-deep" x-text="(page.shuttle_return && page.shuttle_return.length > 1) ? ('第' + ['一','二','三','四','五'][i] + '班') : '返程班次'"></div>
+                <div class="font-black text-xl text-ocean-deep tabular-nums" x-text="b.time"></div>
               </div>
-              <div class="font-black text-2xl text-ocean-deep" x-text="b.time"></div>
+              <div class="flex items-start gap-1.5 text-sm text-slate-600 mt-2 pt-2 border-t border-teal-100" x-show="b.route">
+                <i data-lucide="route" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-ocean-teal"></i>
+                <span x-text="b.route"></span>
+              </div>
             </div>
           </template>
         </div>

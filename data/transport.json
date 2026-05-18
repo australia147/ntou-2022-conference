@@ -1,18 +1,29 @@
 {
   "page_title": "交通與接駁",
-  "page_description": "高鐵南港站直達會場專車、自駕停車與大眾運輸建議，讓您舒適抵達國立臺灣海洋大學。",
+  "page_description": "兩日活動均提供 **高鐵南港站 ⇄ 海洋大學** 免費接駁專車，Day 2 並停靠 **長榮飯店**。自駕、大眾運輸亦有完整指引。",
   "shuttle_outbound": [
     {
-      "time": "08:10"
+      "day": "Day 1 · 6/22（一）",
+      "time": "08:00 → 09:00",
+      "route": "南港高鐵 → 海洋大學"
     },
     {
-      "time": "08:25"
+      "day": "Day 2 · 6/23（二）",
+      "time": "08:30 → 09:30",
+      "route": "南港高鐵 → 長榮飯店 → 海洋大學"
     }
   ],
-  "shuttle_outbound_meeting": "南港高鐵大廳",
+  "shuttle_outbound_meeting": "南港高鐵站大廳",
   "shuttle_return": [
     {
-      "time": "16:30"
+      "day": "Day 1 · 6/22（一）",
+      "time": "16:50 → 17:50",
+      "route": "海洋大學 → 長榮飯店 → 南港高鐵"
+    },
+    {
+      "day": "Day 2 · 6/23（二）",
+      "time": "17:00 → 18:00",
+      "route": "海洋大學 → 南港高鐵"
     }
   ],
   "shuttle_return_meeting": "展示廳門口",

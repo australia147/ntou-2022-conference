@@ -225,21 +225,25 @@ collections:
           - { name: page_description, label: '頁面說明', widget: text, required: false }
 
           - name: shuttle_outbound
-            label: '去程班次（高鐵→海大）'
+            label: '去程班次（南港→海大）'
             widget: list
             required: false
-            summary: '{{fields.time}}'
+            summary: '{{fields.day}} {{fields.time}}'
             fields:
-              - { name: time, label: '發車時間', widget: string, required: false, hint: '例：08:10' }
+              - { name: day, label: '日期 / 班次標籤', widget: string, required: false, hint: '例：Day 1 · 6/22（一）' }
+              - { name: time, label: '時間', widget: string, required: false, hint: '例：08:00 → 09:00' }
+              - { name: route, label: '路線', widget: string, required: false, hint: '例：南港高鐵 → 長榮飯店 → 海洋大學' }
           - { name: shuttle_outbound_meeting, label: '去程集合地點', widget: string, required: false }
 
           - name: shuttle_return
-            label: '返程班次（海大→高鐵）'
+            label: '返程班次（海大→南港）'
             widget: list
             required: false
-            summary: '{{fields.time}}'
+            summary: '{{fields.day}} {{fields.time}}'
             fields:
-              - { name: time, label: '發車時間', widget: string, required: false }
+              - { name: day, label: '日期 / 班次標籤', widget: string, required: false, hint: '例：Day 1 · 6/22（一）' }
+              - { name: time, label: '時間', widget: string, required: false, hint: '例：16:50 → 17:50' }
+              - { name: route, label: '路線', widget: string, required: false, hint: '例：海洋大學 → 長榮飯店 → 南港高鐵' }
           - { name: shuttle_return_meeting, label: '返程集合地點', widget: string, required: false }
 
           - name: driving

@@ -1,197 +1,251 @@
 {
   "page_title": "活動議程一覽",
-  "page_description": "2026 年 6 月 22 日（星期一） · 國立臺灣海洋大學",
-  "keynote_topic": "如何將教學實踐研究與大學社會責任實踐做結合",
-  "keynote_speaker_name": "黃俊儒",
-  "keynote_speaker_title": "教育部教學實踐研究計畫 計畫總主持人",
+  "page_description": "2026 年 6 月 22 日（一）至 23 日（二） · 國立臺灣海洋大學",
+  "keynote_topic": "",
+  "keynote_speaker_name": "",
+  "keynote_speaker_title": "",
   "sessions": [
     {
-      "time": "08:30–09:20",
+      "time": "6/22（一）",
+      "tag": "Day 1",
+      "title": "【心智賦能】計畫解構與工具運用",
+      "subtitle": "",
+      "location": "",
+      "icon": "sparkles",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
+    },
+    {
+      "time": "09:00–09:30",
       "tag": "報到",
       "title": "活動報到",
       "subtitle": "",
-      "location": "海洋廳",
+      "location": "行政大樓二樓第二演講廳",
       "icon": "",
+      "is_keynote": false,
       "headline": "",
       "field_trip_note": ""
     },
     {
-      "time": "09:20–09:35",
+      "time": "09:30–09:40",
       "tag": "致詞",
-      "title": "主管致詞",
-      "subtitle": "「110學年度 教學實踐研究 暨 大學社會責任實踐計畫 成果交流會」",
+      "title": "開場式",
+      "subtitle": "許泰文校長（國立臺灣海洋大學）／劉遠楨副校長（國立臺北教育大學）／陳婉琪教務長（國立臺北大學）／洪揮霖副教務長（國立臺北科技大學）／馮琮涵副教務長（臺北醫學大學）",
       "location": "",
       "icon": "",
+      "is_keynote": false,
       "headline": "",
       "field_trip_note": ""
     },
     {
-      "time": "09:35–09:40",
-      "tag": "開幕",
-      "title": "開幕式 及 大合照",
+      "time": "09:40–09:50",
+      "tag": "合照",
+      "title": "大合照",
       "subtitle": "",
       "location": "",
-      "icon": "",
+      "icon": "camera",
+      "is_keynote": false,
       "headline": "",
       "field_trip_note": ""
     },
     {
-      "time": "09:40–10:00",
-      "tag": "主題演講",
-      "title": "",
-      "subtitle": "",
+      "time": "09:50–10:20",
+      "tag": "演講",
+      "title": "教學實踐研究計畫現況與未來發展",
+      "subtitle": "陳宏彰 副教授（教學實踐研究計畫協同主持人）",
       "location": "",
-      "icon": "",
-      "is_keynote": true,
+      "icon": "presentation",
+      "is_keynote": false,
       "headline": "",
       "field_trip_note": ""
     },
     {
-      "time": "10:00–12:20",
-      "tag": "",
-      "title": "",
-      "subtitle": "",
+      "time": "10:20–11:10",
+      "tag": "演講",
+      "title": "教學實踐研究計畫申請重點—以大學社會責任專案為例",
+      "subtitle": "蔡匡忠 教授（大學社會責任專案召集人）",
       "location": "",
-      "icon": "",
-      "headline": "三場次平行進行",
-      "groups": [
-        {
-          "category_label": "教學實踐研究學門成果交流會",
-          "category_color": "ocean",
-          "tracks": [
-            {
-              "label": "A 場",
-              "title": "民生、社會（含法政）、通識（含體育）學門",
-              "location": "海洋廳"
-            },
-            {
-              "label": "B 場",
-              "title": "[專案] 大學社會責任、技術實作學門",
-              "location": "行政大樓第一演講廳"
-            }
-          ]
-        },
-        {
-          "category_label": "大學社會責任實踐成果交流會 (USR)",
-          "category_color": "teal",
-          "tracks": [
-            {
-              "label": "C 場",
-              "title": "臺北醫學大學・臺北科技大學・臺北大學・臺灣海洋大學",
-              "location": "行政大樓第二演講廳"
-            }
-          ]
-        }
-      ],
+      "icon": "presentation",
+      "is_keynote": false,
+      "headline": "",
       "field_trip_note": ""
     },
     {
-      "time": "12:20–13:20",
+      "time": "11:10–12:00",
+      "tag": "演講",
+      "title": "教學實踐研究計畫申請重點—以情緒健康與福祉專案為例",
+      "subtitle": "陳明柔 教授（情緒健康與福祉專案召集人）",
+      "location": "",
+      "icon": "presentation",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
+    },
+    {
+      "time": "12:00–13:00",
       "tag": "餐敘",
-      "title": "餐敘交流",
+      "title": "午餐休息",
       "subtitle": "",
-      "location": "",
+      "location": "展示廳",
       "icon": "utensils",
+      "is_keynote": false,
       "headline": "",
       "field_trip_note": ""
     },
     {
-      "time": "13:20–14:20",
-      "tag": "",
-      "title": "",
-      "subtitle": "",
+      "time": "13:00–14:40",
+      "tag": "演講",
+      "title": "智能導航：AI 工具在學習、教學、研究與行政的多面向運用",
+      "subtitle": "講者邀請中（待聘）",
       "location": "",
-      "icon": "",
-      "headline": "學門 + 場域踏查 同步進行",
-      "groups": [
-        {
-          "category_label": "學門成果交流會",
-          "category_color": "ocean",
-          "tracks": [
-            {
-              "label": "A 場",
-              "title": "人文藝術及設計學門",
-              "location": "海洋廳"
-            },
-            {
-              "label": "B 場",
-              "title": "工程、商業及管理、數理學門",
-              "location": "行政大樓第一演講廳"
-            },
-            {
-              "label": "C 場",
-              "title": "生技農科、教育、醫護學門",
-              "location": "行政大樓第二演講廳"
-            }
-          ]
-        }
-      ],
-      "field_trip_card": true,
-      "field_trip_note": "（持續至 16:10）"
+      "icon": "presentation",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
     },
     {
-      "time": "14:20–14:50",
+      "time": "14:40–15:00",
       "tag": "茶敘",
-      "title": "茶敘 及 成果展覽",
+      "title": "茶敘交流",
       "subtitle": "",
       "location": "",
       "icon": "coffee",
+      "is_keynote": false,
       "headline": "",
       "field_trip_note": ""
     },
     {
-      "time": "14:50–16:10",
-      "tag": "",
-      "title": "",
-      "subtitle": "",
+      "time": "15:00–16:40",
+      "tag": "演講",
+      "title": "從「心」開始：社會情緒學習（SEL）融入教學設計及應用",
+      "subtitle": "陳佩英 優聘教授（國立臺灣師範大學教育學系）",
       "location": "",
-      "icon": "",
-      "headline": "學門成果交流會（下半場）",
-      "groups": [
-        {
-          "category_label": "學門成果交流會",
-          "category_color": "ocean",
-          "tracks": [
-            {
-              "label": "A 場",
-              "title": "人文藝術及設計學門",
-              "location": "海洋廳"
-            },
-            {
-              "label": "B 場",
-              "title": "工程、商業及管理、數理學門",
-              "location": "行政大樓第一演講廳"
-            },
-            {
-              "label": "C 場",
-              "title": "生技農科、教育、醫護學門",
-              "location": "行政大樓第二演講廳"
-            }
-          ]
-        }
-      ],
+      "icon": "presentation",
+      "is_keynote": false,
+      "headline": "",
       "field_trip_note": ""
     },
     {
-      "time": "16:10",
+      "time": "16:40",
       "tag": "賦歸",
-      "title": "賦歸",
-      "subtitle": "返程接駁車 16:30 自展示廳門口出發前往高鐵南港站",
+      "title": "Day 1 結束",
+      "subtitle": "",
       "location": "",
       "icon": "home",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
+    },
+    {
+      "time": "6/23（二）",
+      "tag": "Day 2",
+      "title": "【實踐共感】海洋跨域應用與 USR 場域實務",
+      "subtitle": "",
+      "location": "",
+      "icon": "ship",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
+    },
+    {
+      "time": "09:20–09:40",
+      "tag": "報到",
+      "title": "活動報到",
+      "subtitle": "",
+      "location": "行政大樓二樓第二演講廳",
+      "icon": "",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
+    },
+    {
+      "time": "09:40–09:50",
+      "tag": "致詞",
+      "title": "長官致詞",
+      "subtitle": "林泰源 教務長（國立臺灣海洋大學）",
+      "location": "",
+      "icon": "",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
+    },
+    {
+      "time": "09:50–10:00",
+      "tag": "合照",
+      "title": "大合照",
+      "subtitle": "",
+      "location": "",
+      "icon": "camera",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
+    },
+    {
+      "time": "10:00–10:50",
+      "tag": "演講",
+      "title": "數位孿生—海洋科技教育",
+      "subtitle": "張正杰 教授（國立臺灣海洋大學師資培育中心）",
+      "location": "",
+      "icon": "presentation",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
+    },
+    {
+      "time": "10:50–12:00",
+      "tag": "分享",
+      "title": "教學實踐研究計畫經驗分享",
+      "subtitle": "劉素芬 助理教授（國立臺北大學社會工作學系）／徐曉萱 副教授（國立臺北科技大學材料及資源工程系）／顏榮泉 副教授（國立臺北教育大學數學暨資訊教育學系）／蕭堯仁 教授（國立臺灣海洋大學應用經濟研究所）／林美宏 副教授（臺北醫學大學通識教育中心）",
+      "location": "",
+      "icon": "users",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
+    },
+    {
+      "time": "12:00–13:10",
+      "tag": "餐敘",
+      "title": "午餐休息",
+      "subtitle": "",
+      "location": "展示廳",
+      "icon": "utensils",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
+    },
+    {
+      "time": "13:10–16:20",
+      "tag": "踏查",
+      "title": "實地參訪",
+      "subtitle": "路線一：和平島 ／ 路線二：國立海洋科技博物館（詳細站點請見「場域踏查」頁）",
+      "location": "展示廳門口集合",
+      "icon": "compass",
+      "is_keynote": false,
+      "headline": "",
+      "field_trip_note": ""
+    },
+    {
+      "time": "16:20",
+      "tag": "賦歸",
+      "title": "賦歸",
+      "subtitle": "",
+      "location": "",
+      "icon": "home",
+      "is_keynote": false,
       "headline": "",
       "field_trip_note": ""
     }
   ],
   "notes": [
     {
-      "title": "教學實踐研究",
-      "content": "口頭簡報 10 分鐘 + 5 分鐘交流",
+      "title": "議程調整",
+      "content": "主辦單位保留議程變動之權利，最新資訊以官網公告為準。",
       "color": "ocean-cyan"
     },
     {
-      "title": "大學社會責任 USR",
-      "content": "口頭簡報 15 分鐘 + 5 分鐘交流",
+      "title": "研習證書",
+      "content": "全程參與者將核發研習證書乙紙。",
       "color": "ocean-teal"
     }
   ]
