@@ -9,13 +9,6 @@
   },
   "contacts": [
     {
-      "name": "孫小姐(美人魚)",
-      "title": "國立臺灣海洋大學 承辦人",
-      "phone": "(02) 2462-2192",
-      "extension": "2008",
-      "email": "elvira1125@email.ntou.edu.tw"
-    },
-    {
       "name": "游文賢",
       "title": "國立臺北教育大學 承辦人",
       "phone": "(02) 2732-1104",
@@ -23,18 +16,25 @@
       "email": "wind22868012@mail.ntue.edu.tw"
     },
     {
-      "name": "謝小姐(仙女)",
-      "title": "國立臺灣海洋大學 承辦人",
-      "phone": "(02) 2462-2192",
-      "extension": "1094",
-      "email": "herjuan@email.ntou.edu.tw"
-    },
-    {
       "name": "杜欣育",
       "title": "國立臺北教育大學 承辦人",
       "phone": "(02) 2732-1104",
       "extension": "85056",
       "email": "orad@mail.ntue.edu.tw"
+    },
+    {
+      "name": "孫小姐(美人魚)",
+      "title": "國立臺灣海洋大學 承辦人",
+      "phone": "(02) 2462-2192",
+      "extension": "2008",
+      "email": "elvira1125@email.ntou.edu.tw"
+    },
+    {
+      "name": "謝小姐(仙女)",
+      "title": "國立臺灣海洋大學 承辦人",
+      "phone": "(02) 2462-2192",
+      "extension": "1094",
+      "email": "herjuan@email.ntou.edu.tw"
     }
   ]
 }
