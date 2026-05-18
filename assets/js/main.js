@@ -164,6 +164,25 @@ const CONTACT_THEMES = [
 ];
 window.contactTheme = (i) => CONTACT_THEMES[i % CONTACT_THEMES.length];
 
+// 將 sessions 依 is_day_header 旗標切成多日
+// 回傳 [{ header: {...}|null, sessions: [...] }, ...]
+window.groupSessionsByDay = function (sessions) {
+  if (!sessions || !sessions.length) return [];
+  const days = [];
+  let cur = null;
+  sessions.forEach(function (s) {
+    if (s.is_day_header) {
+      if (cur) days.push(cur);
+      cur = { header: s, sessions: [] };
+    } else {
+      if (!cur) cur = { header: null, sessions: [] };
+      cur.sessions.push(s);
+    }
+  });
+  if (cur) days.push(cur);
+  return days;
+};
+
 // tag CSS class（依顏色名）
 window.tagClass = function (color) {
   const map = {

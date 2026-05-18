@@ -143,6 +143,7 @@ collections:
               - { name: location, label: '地點', widget: string, required: false }
               - { name: icon, label: '圖示（lucide 名稱）', widget: string, required: false, hint: '例：utensils、coffee、home。沒有就空白' }
               - { name: is_keynote, label: '是否為主題演講？', widget: boolean, default: false, required: false, hint: '勾選後會顯示主題演講題目與講者' }
+              - { name: is_day_header, label: '是否為「日次橫幅」？', widget: boolean, default: false, required: false, hint: '勾選後此列會顯示為當日標題卡（不算入時段表），用於分日例如 Day 1 / Day 2' }
               - { name: headline, label: '平行場次標頭', widget: string, required: false, hint: '例：三場次平行進行' }
 
               - name: groups

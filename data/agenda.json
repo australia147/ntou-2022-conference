@@ -13,6 +13,7 @@
       "location": "",
       "icon": "sparkles",
       "is_keynote": false,
+      "is_day_header": true,
       "headline": "",
       "field_trip_note": ""
     },
@@ -145,6 +146,7 @@
       "location": "",
       "icon": "ship",
       "is_keynote": false,
+      "is_day_header": true,
       "headline": "",
       "field_trip_note": ""
     },

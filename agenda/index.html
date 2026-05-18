@@ -100,15 +100,50 @@
   </div>
 </section>
 
-<!-- ============ TIMELINE ============ -->
-<section class="py-12 sm:py-16">
+<!-- ============ DAY NAV ============ -->
+<section class="pt-6 pb-2" x-show="groupSessionsByDay(page.sessions).length > 1">
   <div class="max-w-5xl mx-auto px-5 sm:px-8">
-    <div class="card !p-6 sm:!p-10 fade-up">
+    <div class="flex flex-wrap gap-2 justify-center">
+      <template x-for="(d, di) in groupSessionsByDay(page.sessions)" :key="di">
+        <a :href="'#day-' + (di + 1)"
+           class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 hover:border-ocean-cyan hover:bg-sky-50 text-sm font-bold text-ocean-deep transition shadow-sm">
+          <i :data-lucide="d.header?.icon || 'calendar'" class="w-4 h-4 text-ocean-cyan"></i>
+          <span x-text="d.header?.tag || ('Day ' + (di + 1))"></span>
+          <span class="text-slate-400 font-normal" x-text="d.header?.time"></span>
+        </a>
+      </template>
+    </div>
+  </div>
+</section>
 
-      <template x-for="(s, i) in (page.sessions || [])" :key="i">
-        <div class="timeline-row">
-          <div class="timeline-time" x-text="s.time"></div>
-          <div>
+<!-- ============ TIMELINE ============ -->
+<section class="py-8 sm:py-12">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 space-y-8">
+
+    <template x-for="(day, di) in groupSessionsByDay(page.sessions)" :key="di">
+      <div class="card !p-0 fade-up overflow-hidden" :id="'day-' + (di + 1)">
+
+        <!-- 日期橫幅 -->
+        <div class="bg-gradient-to-r from-ocean-cyan via-ocean-blue to-ocean-teal text-white px-6 sm:px-10 py-6 flex items-center gap-4 flex-wrap"
+             x-show="day.header">
+          <div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center shrink-0 ring-1 ring-white/30">
+            <i :data-lucide="day.header?.icon || 'calendar'" class="w-7 h-7 text-white"></i>
+          </div>
+          <div class="flex-1 min-w-[200px]">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-bold uppercase tracking-widest bg-white/20 px-2.5 py-1 rounded-full backdrop-blur" x-text="day.header?.tag"></span>
+              <span class="text-sm text-cyan-50/90 font-medium" x-text="day.header?.time"></span>
+            </div>
+            <div class="font-black text-xl sm:text-2xl leading-tight" x-text="day.header?.title"></div>
+          </div>
+        </div>
+
+        <!-- 該日議程 -->
+        <div class="p-6 sm:p-10">
+          <template x-for="(s, i) in day.sessions" :key="i">
+            <div class="timeline-row">
+              <div class="timeline-time" x-text="s.time"></div>
+              <div>
 
             <!-- 平行場次 -->
             <template x-if="s.groups && s.groups.length">
@@ -217,7 +252,9 @@
         </div>
       </template>
 
-    </div>
+        </div><!-- /day-body -->
+      </div><!-- /day-card -->
+    </template>
 
     <!-- 提醒卡片 -->
     <div class="grid sm:grid-cols-2 gap-4 mt-8">
